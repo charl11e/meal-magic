@@ -1,15 +1,17 @@
 {
   "name": "summative2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "A website for my summative project based on recipes and ingredients",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "test": "jest"
   },
-  "author": "",
+  "author": "john.c.livesey-shorrock@durham.ac.uk",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
     "jest": "^29.7.0",
     "nodemon": "^3.1.0"
   },
