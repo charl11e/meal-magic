@@ -1,8 +1,7 @@
 # Programming Gold Summative Server Side Website
-
-# Notes
-
 # Meal Magic
+
+#Notes
 
 # Code References
 Bootstrap Team (2023a) Bootstrap Download. Available at: https://getbootstrap.com/docs/5.3/getting-started/download/ (Accessed: 25th February 2024)
