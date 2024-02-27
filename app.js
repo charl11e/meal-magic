@@ -59,8 +59,8 @@ app.post('/initialise', (req, res) => {
 // Look for recipes that use specific ingredients (NEEDS TO BE IMPLEMENTED PROPERLY)
 app.get('/match-recipes', (req, res) => {
     const ingredientssearch = req.query.ingredients;
-    let matchingrecipes = [];
-    for (let i in recipes) {
+    const matchingrecipes = [];
+    for (const i in recipes) {
         if (recipes[i].ingredients.includes(ingredientssearch)) {
             matchingrecipes.push(recipes[i]);
         }
