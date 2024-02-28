@@ -50,7 +50,7 @@ function write (filename, data, res) {
     });
 }
 
-// Add new recipes and ingredients
+// Add new recipes
 app.post('/new-recipe', (req, res) => {
     // Check if ingredients parameter is an array (MDN Web Docs, 2023d)
     if (!Array.isArray(req.body.ingredients)) {
@@ -66,6 +66,7 @@ app.post('/new-recipe', (req, res) => {
     write('./recipes.json', recipes, res);
 });
 
+// Add new ingredients
 app.post('/new-ingredient', (req, res) => {
     // Check if ingredient is empty
     if (!req.body.ingredient) {
@@ -95,16 +96,23 @@ app.post('/initialise', (req, res) => {
     }
 });
 
-// Look for recipes that use specific ingredients (NEEDS TO BE IMPLEMENTED PROPERLY)
-app.get('/match-recipes', (req, res) => {
-    const ingredientssearch = req.query.ingredients;
-    const matchingrecipes = [];
-    for (const i in recipes) {
-        if (recipes[i].ingredients.includes(ingredientssearch)) {
-            matchingrecipes.push(recipes[i]);
-        }
-    }
-    res.send(matchingrecipes);
+// Get ingredients
+app.get('/get-ingredients/', (req, res) => {
+    res.send(ingredients);
 });
+
+// Get recipes
+app.get('/get-recipes/', (req, res) => {
+    res.send(recipes);
+});
+
+// Search for ingredients
+// app.get('/search-ingredients', (req, res) => {
+
+// Search for recipes
+// app.get('/search-recipes', (req, res) => {
+
+// Look for recipes that use specific ingredients (NEEDS TO BE IMPLEMENTED PROPERLY)
+// app.get('/match-recipes', (req, res) => {
 
 module.exports = app;
