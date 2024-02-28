@@ -7,12 +7,7 @@ try {
     recipes = require('./recipes');
 } catch (err) {
     console.error('Error loading ingredients and recipes, data will be empty and may not be saved', err);
-    ingredients = [
-        { ingredient: 'potato' }
-    ];
-    recipes = [
-        { test: 'test' }
-    ];
+    initalise();
 };
 
 // Set up express and file system
@@ -23,6 +18,25 @@ const fs = require('fs');
 // Load pages statically from client folder and use JSON
 app.use(express.static('client'));
 app.use(express.json());
+
+// Function to initialise ingredients and recipes (either used on demand or if there is an error loading the files)
+function initalise () {
+    ingredients = [
+        { ingredient: 'potato' },
+        { ingredient: 'butter' },
+        { ingredient: 'milk' }
+    ];
+    recipes = [
+        {
+            title: 'Mashed Potato',
+            servings: 4,
+            ingredients: ['potato', 'butter', 'milk'],
+            instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency'
+        }
+    ];
+    write('./ingredients.json', ingredients);
+    write('./recipes.json', recipes);
+}
 
 // Write to file function (MDN Web Docs, 2023a, 2023b) (StackAbuse, 2023) (DigitalOcean, 2020)
 function write (filename, data, res) {
@@ -38,6 +52,11 @@ function write (filename, data, res) {
 
 // Add new recipes and ingredients
 app.post('/new-recipe', (req, res) => {
+    // Check if ingredients parameter is an array (MDN Web Docs, 2023d)
+    if (!Array.isArray(req.body.ingredients)) {
+        res.status(400).send('Ingredients must be sent in an array');
+        return;
+    }
     // Duplicate recipe check has not been implemented as the same recipe can have different ingredients/instructions/servings
     const title = req.body.title;
     const ingredients = req.body.ingredients;
@@ -67,7 +86,13 @@ app.post('/new-ingredient', (req, res) => {
 
 // Initialise ingredients and recipes
 app.post('/initialise', (req, res) => {
-    console.log('IMPLEMENT ME');
+    // Double check for confirmation
+    if (req.body.confirmation === true) {
+        initalise();
+        res.send('Data has been initialised');
+    } else {
+        res.status(400).send('Confirmation not present');
+    }
 });
 
 // Look for recipes that use specific ingredients (NEEDS TO BE IMPLEMENTED PROPERLY)
