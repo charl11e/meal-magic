@@ -7,8 +7,12 @@ try {
     recipes = require('./recipes');
 } catch (err) {
     console.error('Error loading ingredients and recipes, data will be empty and may not be saved', err);
-    ingredients = [];
-    recipes = [];
+    ingredients = [
+        { ingredient: 'potato' }
+    ];
+    recipes = [
+        { test: 'test' }
+    ];
 };
 
 // Set up express and file system
@@ -16,8 +20,9 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
-// Load pages statically from client folder
+// Load pages statically from client folder and use JSON
 app.use(express.static('client'));
+app.use(express.json());
 
 // Write to file function (MDN Web Docs, 2023a, 2023b) (StackAbuse, 2023) (DigitalOcean, 2020)
 function write (filename, data, res) {
@@ -33,6 +38,7 @@ function write (filename, data, res) {
 
 // Add new recipes and ingredients
 app.post('/new-recipe', (req, res) => {
+    // Duplicate recipe check has not been implemented as the same recipe can have different ingredients/instructions/servings
     const title = req.body.title;
     const ingredients = req.body.ingredients;
     const servings = req.body.servings;
@@ -42,12 +48,20 @@ app.post('/new-recipe', (req, res) => {
 });
 
 app.post('/new-ingredient', (req, res) => {
-    // Check if ingredient already exists
-    if (ingredients.includes(req.body.ingredient)) {
-        res.status(400).send('Ingredient already exists');
+    // Check if ingredient is empty
+    if (!req.body.ingredient) {
+        res.status(400).send('Ingredient cannot be empty');
         return;
     }
-    ingredients.push(req.body.ingredient);
+    // Check if ingredient already exists
+    for (const i in ingredients) {
+        if (ingredients[i].ingredient === req.body.ingredient) {
+            res.status(400).send('Ingredient already exists');
+            return;
+        }
+    }
+    // If not, add the ingredient
+    ingredients.push({ ingredient: req.body.ingredient });
     write('./ingredients.json', ingredients, res);
 });
 
