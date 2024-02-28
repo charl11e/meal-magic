@@ -57,8 +57,12 @@ app.post('/new-recipe', (req, res) => {
         res.status(400).send('Ingredients must be sent in an array');
         return;
     }
+    // Put all ingredients in lowercase
+    for (const i in req.body.ingredients) {
+        req.body.ingredients[i] = req.body.ingredients[i].toLowerCase();
+    }
     // Duplicate recipe check has not been implemented as the same recipe can have different ingredients/instructions/servings
-    const title = req.body.title;
+    const title = req.body.title.toLowerCase();
     const ingredients = req.body.ingredients;
     const servings = req.body.servings;
     const instructions = req.body.instructions;
@@ -75,13 +79,13 @@ app.post('/new-ingredient', (req, res) => {
     }
     // Check if ingredient already exists
     for (const i in ingredients) {
-        if (ingredients[i].ingredient === req.body.ingredient) {
+        if (ingredients[i].ingredient === req.body.ingredient.toLowerCase()) {
             res.status(400).send('Ingredient already exists');
             return;
         }
     }
     // If not, add the ingredient
-    ingredients.push({ ingredient: req.body.ingredient });
+    ingredients.push({ ingredient: req.body.ingredient.toLowerCase() });
     write('./ingredients.json', ingredients, res);
 });
 
@@ -107,7 +111,16 @@ app.get('/get-recipes/', (req, res) => {
 });
 
 // Search for ingredients
-// app.get('/search-ingredients', (req, res) => {
+app.get('/search-ingredients/', (req, res) => {
+    const query = req.query.search.toLowerCase();
+    const results = [];
+    for (const i in ingredients) {
+        if (ingredients[i].ingredient.includes(query)) {
+            results.push(ingredients[i]);
+        }
+    }
+    res.send(results);
+});
 
 // Search for recipes
 // app.get('/search-recipes', (req, res) => {
