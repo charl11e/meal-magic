@@ -1,1 +1,11 @@
-[{"ingredient":"potato"},{"ingredient":"butter"},{"ingredient":"milk"}]
+[
+  {
+    "ingredient": "potato"
+  },
+  {
+    "ingredient": "butter"
+  },
+  {
+    "ingredient": "milk"
+  }
+]

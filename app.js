@@ -90,14 +90,9 @@ app.post('/new-ingredient', (req, res) => {
 });
 
 // Initialise ingredients and recipes
-app.post('/initialise', (req, res) => {
-    // Double check for confirmation
-    if (req.body.confirmation === true) {
-        initalise();
-        res.send('Data has been initialised');
-    } else {
-        res.status(400).send('Confirmation not present');
-    }
+app.delete('/initialise/', (req, res) => {
+    initalise();
+    res.send('Data has been initialised');
 });
 
 // Get ingredients
