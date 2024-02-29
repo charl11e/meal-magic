@@ -38,7 +38,7 @@ function initalise () {
     write('./recipes.json', recipes);
 }
 
-// Write to file function (MDN Web Docs, 2023a, 2023b) (StackAbuse, 2023) (DigitalOcean, 2020)
+// Function to write to file (MDN Web Docs, 2023a, 2023b) (StackAbuse, 2023) (DigitalOcean, 2020)
 function write (filename, data, res) {
     fs.writeFile(filename, JSON.stringify(data), (err) => {
         if (err) {
@@ -158,7 +158,35 @@ app.get('/search-recipes/', (req, res) => {
     res.send(results);
 });
 
-// Look for recipes that use specific ingredients (NEEDS TO BE IMPLEMENTED PROPERLY)
-// app.get('/match-recipes', (req, res) => {
+// Look for recipes that use specific ingredients
+app.get('/match-recipes/', (req, res) => {
+    // Check if search parameter is empty
+    if (!req.query.search) {
+        res.status(400).send('Search cannot be empty');
+        return;
+    }
 
+    // Split the search query into an array of ingredients (W3Schools, 2023d)
+    const query = req.query.search.split(',');
+    for (const i in query) {
+        query[i] = query[i].toLowerCase();
+    }
+
+    // Search for recipes that use the ingredients (must contain ALL ingredients)
+    const results = [];
+    for (const recipe of recipes) {
+        if (query.filter(ingredient => recipe.ingredients.includes(ingredient)).length === recipe.ingredients.length) {
+            results.push(recipe);
+        }
+    }
+
+    // Return results
+    res.send(results);
+});
+
+// Remove ingredients
+
+// Remove recipes
+
+// Edit recipes
 module.exports = app;

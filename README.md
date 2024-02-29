@@ -24,7 +24,9 @@ W3Schools (Refsnes Data) (2023a) HTML Favicon. Available at: https://www.w3schoo
 
 W3Schools (Refsnes Data) (2023b) HTML Responsive Web Design. Available at: https://www.w3schools.com/html/html_responsive.asp (Accessed 25th February 2024)
 
-W3Schools (Refsnes Data) (2023c) Javascript Errors. Available at: https://www.w3schools.com/js/js_errors.asp (Accessed 27th February 2024)
+W3Schools (Refsnes Data) (2023c) JavaScript Errors. Available at: https://www.w3schools.com/js/js_errors.asp (Accessed 27th February 2024)
+
+W3Schools (Refsnes Data) (2023d) JavaScript String split(). Available at: https://www.w3schools.com/jsref/jsref_split.asp (Accessed 29th February 2024)
 
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
