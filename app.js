@@ -28,7 +28,7 @@ function initalise () {
     ];
     recipes = [
         {
-            title: 'Mashed Potato',
+            title: 'mashed potatoes',
             servings: 4,
             ingredients: ['potato', 'butter', 'milk'],
             instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency'
@@ -112,6 +112,12 @@ app.get('/get-recipes/', (req, res) => {
 
 // Search for ingredients
 app.get('/search-ingredients/', (req, res) => {
+    // Check if search parameter is empty
+    if (!req.query.search) {
+        res.status(400).send('Search cannot be empty');
+        return;
+    }
+    // If not, put parameter into lowercase and search for it
     const query = req.query.search.toLowerCase();
     const results = [];
     for (const i in ingredients) {
@@ -122,8 +128,35 @@ app.get('/search-ingredients/', (req, res) => {
     res.send(results);
 });
 
-// Search for recipes
-// app.get('/search-recipes', (req, res) => {
+// Search for recipes (based on title/servings)
+app.get('/search-recipes/', (req, res) => {
+    // Check if search parameter is empty
+    if (!req.query.search) {
+        res.status(400).send('Search cannot be empty');
+        return;
+    }
+
+    // If search query is a number, search based on servings (GeekforGeeks, 2024)
+    const results = [];
+    if (typeof (Number(req.query.search)) === 'number') {
+        const query = Number(req.query.search);
+        for (const i in recipes) {
+            if (recipes[i].servings === query) {
+                results.push(recipes[i]);
+            }
+        }
+    }
+    // No matter whether the search query is a number or not, search based on title
+    const query = req.query.search.toLowerCase();
+    for (const i in recipes) {
+        if (recipes[i].title.includes(query)) {
+            results.push(recipes[i]);
+        }
+    }
+
+    // Return results
+    res.send(results);
+});
 
 // Look for recipes that use specific ingredients (NEEDS TO BE IMPLEMENTED PROPERLY)
 // app.get('/match-recipes', (req, res) => {

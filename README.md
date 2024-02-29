@@ -8,6 +8,8 @@ Bootstrap Team (2023a) Bootstrap Download. Available at: https://getbootstrap.co
 
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
+GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
+
 MDN Web Docs (2023a) Arrow function expressions. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions (Accessed: 27th February 2024)
 
 MDN Web Docs (2023b) Control flow and error handling. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling (Accessed: 27th February 2024)
