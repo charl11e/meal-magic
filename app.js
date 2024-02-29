@@ -1,5 +1,7 @@
 // All HTTP response status codes are used from MDN Web Docs (2023c)
 
+// SET UP
+
 // Load ingredients and recipes (W3Schools, 2023c)
 let ingredients, recipes;
 try {
@@ -50,6 +52,10 @@ function write (filename, data, res) {
     });
 }
 
+// ROUTES
+
+// POST REQUESTS
+
 // Add new recipes
 app.post('/new-recipe', (req, res) => {
     // Check if ingredients parameter is an array (MDN Web Docs, 2023d)
@@ -89,11 +95,7 @@ app.post('/new-ingredient', (req, res) => {
     write('./ingredients.json', ingredients, res);
 });
 
-// Initialise ingredients and recipes
-app.delete('/initialise/', (req, res) => {
-    initalise();
-    res.send('Data has been initialised');
-});
+// GET REQUESTS
 
 // Get ingredients
 app.get('/get-ingredients/', (req, res) => {
@@ -101,12 +103,12 @@ app.get('/get-ingredients/', (req, res) => {
 });
 
 // Get recipes
-app.get('/get-recipes/', (req, res) => {
+app.get('/get-recipes', (req, res) => {
     res.send(recipes);
 });
 
 // Search for ingredients
-app.get('/search-ingredients/', (req, res) => {
+app.get('/search-ingredients', (req, res) => {
     // Check if search parameter is empty
     if (!req.query.search) {
         res.status(400).send('Search cannot be empty');
@@ -124,7 +126,7 @@ app.get('/search-ingredients/', (req, res) => {
 });
 
 // Search for recipes (based on title/servings)
-app.get('/search-recipes/', (req, res) => {
+app.get('/search-recipes', (req, res) => {
     // Check if search parameter is empty
     if (!req.query.search) {
         res.status(400).send('Search cannot be empty');
@@ -154,7 +156,7 @@ app.get('/search-recipes/', (req, res) => {
 });
 
 // Look for recipes that use specific ingredients
-app.get('/match-recipes/', (req, res) => {
+app.get('/match-recipes', (req, res) => {
     // Check if search parameter is empty
     if (!req.query.search) {
         res.status(400).send('Search cannot be empty');
@@ -179,9 +181,25 @@ app.get('/match-recipes/', (req, res) => {
     res.send(results);
 });
 
-// Remove ingredients
+// DELETE REQUESTS
 
-// Remove recipes
+// Initialise ingredients and recipes
+app.delete('/initialise', (req, res) => {
+    initalise();
+    res.send('Data has been initialised');
+});
+
+// Remove ingredients
+app.delete('/remove-ingredient/:ingredient', (req, res) => {
+    const ingredient = req.params.ingredient.toLowerCase();
+    res.send(ingredient);
+});
+
+// Remove recipes (based on title)
+app.delete('/remove-recipe/:recipe', (req, res) => {
+    const recipe = req.params.recipe.toLowerCase();
+    res.send(recipe);
+});
 
 // Edit recipes
 module.exports = app;
