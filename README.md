@@ -6,6 +6,8 @@
 # Code References
 Bootstrap Team (2023a) Bootstrap Download. Available at: https://getbootstrap.com/docs/5.3/getting-started/download/ (Accessed: 25th February 2024)
 
+Bootstrap Team (2024a) Navbar. Available at: https://getbootstrap.com/docs/4.0/components/navbar/ (Accessed: 14th March 2024)
+
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
@@ -27,6 +29,8 @@ W3Schools (Refsnes Data) (2023b) HTML Responsive Web Design. Available at: https
 W3Schools (Refsnes Data) (2023c) JavaScript Errors. Available at: https://www.w3schools.com/js/js_errors.asp (Accessed 27th February 2024)
 
 W3Schools (Refsnes Data) (2023d) JavaScript String split(). Available at: https://www.w3schools.com/jsref/jsref_split.asp (Accessed 29th February 2024)
+
+W3Schools (Refsnes Data) (2023e) Bootstrap Navigation Bar. Available at: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp (Accessed: 14th March 2024)
 
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
