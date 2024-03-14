@@ -16,9 +16,16 @@ async function getRecipes () {
         const response = await fetch('/get-recipes');
         const recipes = await response.json();
         let recipelist = '';
+        // Just in case a recipe is added more than once
+        const recipesAdded = [];
         // Add all recipes to the sidebar
         for (const recipe in recipes) {
+            // Checks so recipe is not added more than once
+            if (recipesAdded.includes(recipes[recipe].title)) {
+                continue;
+            }
             recipelist += '<ul class="recipe click">' + capitalise(recipes[recipe].title) + '</ul>';
+            recipesAdded.push(recipes[recipe].title);
         }
         sidebar.innerHTML = '<h3 class="click">Recipes</h3> <p>' + recipelist + '</p>';
 
@@ -41,13 +48,17 @@ async function getRecipe (recipe) {
         const response = await fetch('/search-recipes?search=' + recipe);
         const recipes = await response.json();
 
-        // Display the recipe
-        const recipeDetails = document.getElementById('recipe-details');
-        let ingredients = '';
-        for (const ingredient of recipes[0].ingredients) {
-            ingredients += '<li>' + capitalise(ingredient) + '</li>';
+        // Display the recipe(s)
+        let details = '';
+        for (const i in recipes) {
+            let ingredients = '';
+            for (const ingredient of recipes[i].ingredients) {
+                ingredients += '<li>' + capitalise(ingredient) + '</li>';
+            }
+            details += '<h3>' + capitalise(recipes[i].title) + '</h3><p>Servings: ' + recipes[i].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[i].instructions + '</p>';
         }
-        recipeDetails.innerHTML = '<h3>' + capitalise(recipes[0].title) + '</h3><p>Servings: ' + recipes[0].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[0].instructions + '</p>';
+        const recipeDetails = document.getElementById('recipe-details');
+        recipeDetails.innerHTML = details;
     } catch (error) {
         document.getElementById('errormessage').innerHTML = `<div class="alert alert-danger error" role="alert">Error occured while getting recipes from server: ${error}</div>`;
     }
