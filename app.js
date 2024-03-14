@@ -8,7 +8,7 @@ try {
     ingredients = require('./ingredients');
     recipes = require('./recipes');
 } catch (err) {
-    console.error('Error loading ingredients and recipes, data will be empty and may not be saved', err);
+    console.error('Error loading ingredients and recipes, previous data will have been lost', err);
     initalise();
 };
 
@@ -48,7 +48,7 @@ function write (filename, data, res) {
             res.status(500).send('Error writing to file');
             return;
         }
-    res.send('Successfully added!');
+    res.send('Successfully updated!');
     });
 }
 
@@ -98,7 +98,7 @@ app.post('/new-ingredient', (req, res) => {
 // GET REQUESTS
 
 // Get ingredients
-app.get('/get-ingredients/', (req, res) => {
+app.get('/get-ingredients', (req, res) => {
     res.send(ingredients);
 });
 
@@ -192,13 +192,15 @@ app.delete('/initialise', (req, res) => {
 // Remove ingredients
 app.delete('/remove-ingredient/:ingredient', (req, res) => {
     const ingredient = req.params.ingredient.toLowerCase();
-    res.send(ingredient);
+    ingredients = ingredients.filter(i => i.ingredient !== ingredient);
+    write('./ingredients.json', ingredients, res);
 });
 
 // Remove recipes (based on title)
 app.delete('/remove-recipe/:recipe', (req, res) => {
     const recipe = req.params.recipe.toLowerCase();
-    res.send(recipe);
+    recipes = recipes.filter(i => i.title !== recipe);
+    write('./recipes.json', recipes, res);
 });
 
 // Edit recipes
