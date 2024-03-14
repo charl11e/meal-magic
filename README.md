@@ -12,6 +12,8 @@ DigitalOcean (2020) How to use the res Object in Express. Available at: https://
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
 
+FreeCodeCamp (2020) How to Capitalize the First Letter of Each Word in JavaScript. Available at: https://www.freecodecamp.org/news/how-to-capitalize-words-in-javascript/ (Accessed: 14th March 2024)
+
 MDN Web Docs (2023a) Arrow function expressions. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions (Accessed: 27th February 2024)
 
 MDN Web Docs (2023b) Control flow and error handling. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling (Accessed: 27th February 2024)

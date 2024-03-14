@@ -1,10 +1,27 @@
 /* Navbar */
 .navbar-brand {
-    font-size: 30px;
+    font-size: 25px;
     color: #fff;
     font-weight:bold;
 }
 
-.collapse.navbar-collapse {
-    font-size: 20px;
+.navbar-nav {
+    font-size:25px;
+}
+/* Sidebar */
+#sidebar {
+    float:left;
+    width: 250px;
+    height:auto;
+    border-right:3px solid white;
+}
+
+#recipes {
+    font-size:20px;
+}
+
+/* Main Content */
+#main {
+    margin-left: 250px;
+    padding: 20px;
 }

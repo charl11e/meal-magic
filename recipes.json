@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "title": "mashed potatoes",
+    "servings": 4,
+    "ingredients": [
+      "potato",
+      "butter",
+      "milk"
+    ],
+    "instructions": "1) Boil potatoes 2) Mash them with the butter and milk until desired consistency"
+  },
+  {
+    "title": "chicken noodle soup",
+    "servings": 4,
+    "ingredients": [
+      "chicken",
+      "noodles",
+      "carrots",
+      "celery",
+      "onion",
+      "garlic",
+      "chicken broth"
+    ],
+    "instructions": "1) Boil chicken 2) Add vegetables and noodles 3) Simmer until noodles are cooked"
+  }
+]

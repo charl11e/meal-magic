@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="style.css">
 
         <!--Client-Side JS-->
-        <script src="client.js" await></script>
+        <script src="client.js" defer></script>
 
         <!--Set Viewport (W3Schools, 2023b)-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,32 +25,34 @@
 
     <body>
 
-        <!--Navbar (W3Schools, 2023e) (Bootstrap Team, 2024a)-->
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-
-                <a class="navbar-brand" href="/index.html">
-                    <img src="/assets/logo-light.png" height="60px" class="d-inline-block align-text" alt="Logo">
-                    Meal Magic
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <!--Sidebar / Navbar (W3Schools, 2023e) (Bootstrap Team, 2024a)-->
+        <div class="container-fluid" id="sidebar">
+            <!--Navigation Links-->
+            <nav class="navbar flex-column">
+                <div class="container-fluid">
+    
+                    <a class="navbar-brand" href="/index.html">
+                        <img src="/assets/logo-light.png" height="60px" class="d-inline-block align-text" alt="Logo">
+                        Meal Magic
+                    </a>
+    
+    
                     <div class="navbar-nav me-auto mb-2">
-                        <a class="nav-link active" href="/index.html">Home</a>
-                        <a class="nav-link" href="#">Test</a>
+                        <h3 class="nav-link active" href="/index.html">Home</h3>
+                        <h3 class="nav-link" href="#">Test</h3>
                     </div>
+
                 </div>
+            </nav>
+
+            <!--List of recipes-->
+            <div class="container-fluid" id="recipes">
+                <h2>Recipes</h2>
             </div>
-        </nav>
+        </div>
 
 
-
-
-        <div class="container-fluid">
+        <div class="container-fluid" id="main">
 
             <h1>Test</h1>
 
