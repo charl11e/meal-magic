@@ -8,6 +8,8 @@ Bootstrap Team (2023a) Bootstrap Download. Available at: https://getbootstrap.co
 
 Bootstrap Team (2024a) Navbar. Available at: https://getbootstrap.com/docs/4.0/components/navbar/ (Accessed: 14th March 2024)
 
+Bootstrap Team (2024b) Alerts. Available at: https://getbootstrap.com/docs/5.3/components/alerts/ (Accessed: 14th March 2024)
+
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
@@ -21,6 +23,8 @@ MDN Web Docs (2023b) Control flow and error handling. Available at: https://deve
 MDN Web Docs (2023c) HTTP response status codes. Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses (Accessed: 27th February 2024)
 
 MDN Web Docs (2023d) Array.isArray(). Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray (Accessed: 28th February 2024)
+
+MDN Web Docs (2023e) Node: textContent property. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent (Accessed: 14th March 2024)
 
 StackAbuse (2023) How to return status codes in Express. Available at: https://stackabuse.com/bytes/how-to-return-status-codes-in-express/ (Accessed: 27th February 2024)
 

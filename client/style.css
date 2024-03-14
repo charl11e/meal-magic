@@ -1,3 +1,8 @@
+/* Error */
+.error {
+    font-weight:bold;
+}
+
 /* Navbar */
 .navbar-brand {
     font-size: 25px;
@@ -8,6 +13,11 @@
 .navbar-nav {
     font-size:25px;
 }
+
+.nav-link {
+    cursor: pointer;
+}
+
 /* Sidebar */
 #sidebar {
     float:left;
@@ -20,8 +30,12 @@
     font-size:20px;
 }
 
+.click {
+    cursor: pointer;
+}
+
 /* Main Content */
-#main {
+#recipe-details {
     margin-left: 250px;
     padding: 20px;
 }
