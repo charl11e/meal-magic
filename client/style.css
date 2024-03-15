@@ -16,14 +16,23 @@
 
 .nav-link {
     cursor: pointer;
+    font-size:30px;
+    font-weight:bold;
 }
 
-/* Sidebar */
+/* Sidebar (StackOverflow, 2012a) */
 #sidebar {
+    overflow:auto;
     float:left;
     width: 250px;
-    height:auto;
+    height:100%;
     border-right:3px solid white;
+}
+
+/* (StackOverflow, 2008a) */
+html, body {
+    height:98%;
+    width:90%
 }
 
 #recipes {
@@ -34,8 +43,13 @@
     cursor: pointer;
 }
 
+.selected {
+    color:white;
+    font-weight:bold;
+}
+
 /* Main Content */
-#recipe-details {
+#content {
     margin-left: 250px;
     padding: 20px;
 }

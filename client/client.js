@@ -7,6 +7,19 @@ function capitalise (string) {
     return words.join(' ');
 }
 
+// Change the boldness on tags if they are clicked
+function selected (tag) {
+    const hometag = document.getElementById('home-tag');
+    const recipetag = document.getElementById('recipes-tag');
+    hometag.classList.remove('active');
+    recipetag.classList.remove('active');
+    const alltags = document.querySelectorAll('.recipe');
+    for (const tag of alltags) {
+        tag.classList.remove('selected');
+    }
+    tag.classList.add('selected');
+}
+
 // Get List of all recipes for sidebar
 getRecipes();
 async function getRecipes () {
@@ -27,13 +40,15 @@ async function getRecipes () {
             recipelist += '<ul class="recipe click">' + capitalise(recipes[recipe].title) + '</ul>';
             recipesAdded.push(recipes[recipe].title);
         }
-        sidebar.innerHTML = '<h3 class="click">Recipes</h3> <p>' + recipelist + '</p>';
+        sidebar.innerHTML = recipelist;
 
         // Add an event listener for all recipes in the sidebar (MDN Web Docs 2023e)
         const recipeList = document.querySelectorAll('.recipe');
         for (const recipe of recipeList) {
             recipe.addEventListener('click', function () {
+                // Change content to the recipe and update the sidebar
                 getRecipe(recipe.textContent);
+                selected(recipe);
             });
         }
     } catch (error) {
@@ -41,7 +56,7 @@ async function getRecipes () {
     }
 }
 
-// Get details of a single recipe
+// Get details of a recipe
 async function getRecipe (recipe) {
     try {
         // Fetch the recipe from the server
@@ -57,7 +72,7 @@ async function getRecipe (recipe) {
             }
             details += '<h3>' + capitalise(recipes[i].title) + '</h3><p>Servings: ' + recipes[i].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[i].instructions + '</p>';
         }
-        const recipeDetails = document.getElementById('recipe-details');
+        const recipeDetails = document.getElementById('content');
         recipeDetails.innerHTML = details;
     } catch (error) {
         document.getElementById('errormessage').innerHTML = `<div class="alert alert-danger error" role="alert">Error occured while getting recipes from server: ${error}</div>`;
