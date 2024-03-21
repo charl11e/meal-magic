@@ -20,6 +20,21 @@
     font-weight:bold;
 }
 
+/* Search bar */
+#searchbox {
+    display:inline-block;
+    position:relative;
+}
+
+#search {
+    padding-right:30px;
+}
+#submit {
+    position:absolute;
+    right:0;
+    top:0;
+}
+
 /* Sidebar (StackOverflow, 2012a) */
 #sidebar {
     overflow:auto;
@@ -39,6 +54,7 @@ html, body {
     font-size:20px;
 }
 
+/* (StackOverflow, 2011a) */
 .click {
     cursor: pointer;
 }

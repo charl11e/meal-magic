@@ -10,6 +10,8 @@ Bootstrap Team (2024a) Navbar. Available at: https://getbootstrap.com/docs/4.0/c
 
 Bootstrap Team (2024b) Alerts. Available at: https://getbootstrap.com/docs/5.3/components/alerts/ (Accessed: 14th March 2024)
 
+Bootstrap Team (2024c) Navs. Available at: https://getbootstrap.com/docs/4.0/components/navs/ (Accessed: 15th March 2024)
+
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
@@ -32,7 +34,11 @@ StackAbuse (2023) How to return status codes in Express. Available at: https://s
 
 StackOverflow (2008a) How to force DIV block to extend to bottom of a page even if it has no content. Available at: https://stackoverflow.com/questions/147528/how-do-i-force-a-div-block-to-extend-to-the-bottom-of-a-page-even-if-it-has-no-c (Accessed: 15th March 2024)
 
+StackOverflow (2011a) Change the mouse cursor on mouse over to anchor-like style. Available at: https://stackoverflow.com/questions/7185044/change-the-mouse-cursor-on-mouse-over-to-anchor-like-style (Accessed: 15th March 2024)
+
 StackOverflow (2012a) How to make a div vertically scrollable using CSS. Available at: https://stackoverflow.com/questions/9707397/making-a-div-vertically-scrollable-using-css (Accessed: 15th March 2024)
+
+StackOverdlow (2013a) Search box with button in textbox. Available at: https://stackoverflow.com/questions/15779957/search-box-with-button-in-textbox (Accessed: 21st March 2024)
 
 W3Schools (Refsnes Data) (2023a) HTML Favicon. Available at: https://www.w3schools.com/html/html_favicon.asp (Accessed: 25th February 2024)
 
@@ -46,3 +52,5 @@ W3Schools (Refsnes Data) (2023e) Bootstrap Navigation Bar. Available at: https:/
 
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
+
+search.png: icons-icons (2023) (Adapted from) Search Icon. Available at: https://icon-icons.com/icon/search/153438 (Accessed: 20th March 2024)

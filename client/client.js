@@ -1,3 +1,5 @@
+// Alerts for all errors made with help from Bootstrap Team, 2024b
+
 // Capitalise first letter of each word (FreeCodeCamp 2024)
 function capitalise (string) {
     const words = string.split(' ');

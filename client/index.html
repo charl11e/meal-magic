@@ -28,16 +28,23 @@
         <!--Div used to store error message if applicable (Bootstrap Team, 2024b)-->
         <div class="container-fluid" class="error" id="errormessage" style="padding:10px"></div>
 
-         <!--Sidebar / Navbar (W3Schools, 2023e) (Bootstrap Team, 2024a)-->
+         <!--Sidebar / Navbar (W3Schools, 2023e) (Bootstrap Team, 2024a) (Bootstrap Team, 2024c)-->
         <div class="container-fluid" id="sidebar">
             <!--Navigation Links-->
             <nav class="navbar flex-column">
                 <div class="container-fluid">
     
+                    <!--Brand-->
                     <a class="navbar-brand" href="/index.html">
                         <img src="/assets/logo-light.png" height="60px" class="d-inline-block align-text" alt="Logo">
                         Meal Magic
                     </a>
+
+                    <!--Search Bar-->
+                    <form class="form-inline my-2 my-lg-0" role="search" id="searchbox">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+                        <button class="btn btn-default" id="submit"><img src=/assets/search.png height="20" alt="Search"></button>
+                    </form>
     
                     <div class="navbar-nav me-auto mb-2">
                         <!--FreeCodeCamp (2023)-->
