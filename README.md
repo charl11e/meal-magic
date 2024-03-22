@@ -38,7 +38,7 @@ StackOverflow (2011a) Change the mouse cursor on mouse over to anchor-like style
 
 StackOverflow (2012a) How to make a div vertically scrollable using CSS. Available at: https://stackoverflow.com/questions/9707397/making-a-div-vertically-scrollable-using-css (Accessed: 15th March 2024)
 
-StackOverdlow (2013a) Search box with button in textbox. Available at: https://stackoverflow.com/questions/15779957/search-box-with-button-in-textbox (Accessed: 21st March 2024)
+StackOverflow (2013a) Search box with button in textbox. Available at: https://stackoverflow.com/questions/15779957/search-box-with-button-in-textbox (Accessed: 21st March 2024)
 
 W3Schools (Refsnes Data) (2023a) HTML Favicon. Available at: https://www.w3schools.com/html/html_favicon.asp (Accessed: 25th February 2024)
 
