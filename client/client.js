@@ -1,8 +1,3 @@
-// TODO: Refactor code for editing content when adding recipes/ingredients
-// TODO: Reformat search results
-// TODO: Possibly refactor error function
-// TODO: Add a catch for the search bar
-
 // Alerts for all errors made with help from Bootstrap Team, 2024b
 
 // Capitalise first letter of each word (FreeCodeCamp 2024)
@@ -12,6 +7,11 @@ function capitalise (string) {
         words[i] = words[i][0].toUpperCase() + words[i].substr(1);
     }
     return words.join(' ');
+}
+
+// Add error message
+function displayError (err) {
+    document.getElementById('errormessage').innerHTML = `<div class="alert alert-danger error" role="alert">${err}</div>`;
 }
 
 // Change the boldness on tags if they are clicked
@@ -25,6 +25,12 @@ function selected (tag) {
         tag.classList.remove('selected');
     }
     tag.classList.add('selected');
+}
+
+// Edit content of page
+function changeContent (content) {
+    const contentSpace = document.getElementById('content');
+    contentSpace.innerHTML = content;
 }
 
 // Get List of all recipes for sidebar
@@ -59,7 +65,7 @@ async function getRecipes () {
             });
         }
     } catch (error) {
-        document.getElementById('errormessage').innerHTML += `<div class="alert alert-danger error" role="alert">Error occured while getting recipes from server: ${error}</div>`;
+        displayError(`Error occured while getting recipes from server: ${error}`);
     }
 }
 
@@ -79,10 +85,9 @@ async function getRecipe (recipe) {
             }
             details += '<h3>' + capitalise(recipes[i].title) + '</h3><p>Servings: ' + recipes[i].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[i].instructions + '</p>';
         }
-        const recipeDetails = document.getElementById('content');
-        recipeDetails.innerHTML = details;
+        changeContent(details);
     } catch (error) {
-        document.getElementById('errormessage').innerHTML += `<div class="alert alert-danger error" role="alert">Error occured while getting recipes from server: ${error}</div>`;
+        displayError(`Error occured while getting recipe from server: ${error}`);
     }
 }
 
@@ -104,11 +109,15 @@ search.addEventListener('submit', async function (event) {
         const ingredients = await response2.json();
 
         if (recipes.length === 0 && ingredients.length === 0) {
-            document.getElementById('content').innerHTML = '<h3>No search results found</h3>';
+            changeContent('<h1>No results found</h1>');
             return;
         }
 
         let details = '<h1>Recipes</h1>';
+        if (recipes.length === 0) {
+            details += '<h3>No recipes found</h3>';
+        }
+
         for (const i in recipes) {
             let ingredients = '';
             for (const ingredient of recipes[i].ingredients) {
@@ -118,12 +127,15 @@ search.addEventListener('submit', async function (event) {
         }
 
         details += '<h1>Ingredients</h1>';
+        if (ingredients.length === 0) {
+            details += '<h3>No ingredients found</h3>';
+        }
         for (const i in ingredients) {
-            details += '<h3>' + capitalise(ingredients[i].ingredient) + '</h3>';
+            details += '<li>' + capitalise(ingredients[i].ingredient) + '</li>';
         };
 
-        document.getElementById('content').innerHTML = details;
+        changeContent(details);
     } catch (error) {
-        console.log(error);
+        displayError(`Error occured while searching for recipes and ingredients: ${error}`);
     }
 });
