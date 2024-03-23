@@ -139,3 +139,33 @@ search.addEventListener('submit', async function (event) {
         displayError(`Error occured while searching for recipes and ingredients: ${error}`);
     }
 });
+
+// Get all recipes
+const recipetag = document.getElementById('recipes-tag');
+recipetag.addEventListener('click', async function (event) {
+    // Change boldness on tags
+    const alltags = document.querySelectorAll('.recipe');
+    for (const tag of alltags) {
+        tag.classList.remove('selected');
+    }
+    const hometag = document.getElementById('home-tag');
+    hometag.classList.remove('active');
+    recipetag.classList.add('active');
+
+    // Get all recipes and display them
+    try {
+        const response = await fetch('/get-recipes');
+        const recipes = await response.json();
+        let content = '';
+        for (const recipe in recipes) {
+            let ingredients = '';
+            for (const ingredient of recipes[recipe].ingredients) {
+                ingredients += '<li>' + capitalise(ingredient) + '</li>';
+            }
+            content += '<h3>' + capitalise(recipes[recipe].title) + '</h3><p>Servings: ' + recipes[recipe].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[recipe].instructions + '</p>';
+        }
+        changeContent(content);
+    } catch (error) {
+        displayError(`Error occured while getting recipe from server: ${error}`);
+    }
+});
