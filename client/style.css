@@ -73,3 +73,7 @@ html, body {
 h1 {
     font-weight:bold;
 }
+
+#ingredients {
+    font-size:20px;
+}

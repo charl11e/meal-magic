@@ -166,6 +166,25 @@ recipetag.addEventListener('click', async function (event) {
         }
         changeContent(content);
     } catch (error) {
-        console.log(error);
+        displayError(`Error occured while getting recipes from server: ${error}`);
     }
 });
+
+// Get list of all ingredients for sidebar
+getIngredients();
+async function getIngredients () {
+    const sidebar = document.getElementById('ingredients');
+    try {
+        // Fetch all ingredients from the server
+        const response = await fetch('/get-ingredients');
+        const ingredients = await response.json();
+        console.log(ingredients);
+        let ingredientlist = '';
+        for (const ingredient in ingredients) {
+            ingredientlist += '<ul>' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
+        }
+        sidebar.innerHTML = ingredientlist;
+    } catch (error) {
+        displayError(`Error occured while getting ingredients from server: ${error}`);
+    }
+}
