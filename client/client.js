@@ -166,6 +166,6 @@ recipetag.addEventListener('click', async function (event) {
         }
         changeContent(content);
     } catch (error) {
-        displayError(`Error occured while getting recipe from server: ${error}`);
+        console.log(error);
     }
 });

@@ -69,3 +69,7 @@ html, body {
 #recipes {
     font-size:20px;
 }
+
+h1 {
+    font-weight:bold;
+}
