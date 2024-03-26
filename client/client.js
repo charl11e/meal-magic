@@ -181,7 +181,7 @@ async function getIngredients () {
         console.log(ingredients);
         let ingredientlist = '';
         for (const ingredient in ingredients) {
-            ingredientlist += '<ul>' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
+            ingredientlist += '<ul class="ingredient">' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
         }
         sidebar.innerHTML = ingredientlist;
     } catch (error) {

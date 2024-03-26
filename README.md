@@ -12,6 +12,8 @@ Bootstrap Team (2024b) Alerts. Available at: https://getbootstrap.com/docs/5.3/c
 
 Bootstrap Team (2024c) Navs. Available at: https://getbootstrap.com/docs/4.0/components/navs/ (Accessed: 15th March 2024)
 
+Bootstrap Team (2024d) Modal. Available at: https://getbootstrap.com/docs/4.0/components/modal/ (Accessed: 26th March 2024)
+
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
