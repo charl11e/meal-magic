@@ -188,3 +188,17 @@ async function getIngredients () {
         displayError(`Error occured while getting ingredients from server: ${error}`);
     }
 }
+
+// Initialise function
+async function initialise () {
+    try {
+        const response = await fetch('/initialise', { method: 'DELETE' });
+        if (response.status !== 200) {
+            displayError('Error occured while initialising the data');
+            return;
+        }
+        location.reload();
+    } catch (error) {
+        displayError(`Error occured while initialising the data: ${error}`);
+    }
+}

@@ -48,7 +48,9 @@ function write (filename, data, res) {
             res.status(500).send('Error writing to file');
             return;
         }
-    res.send('Successfully updated!');
+    if (res) {
+        res.send('Successfully updated!');
+    }
     });
 }
 
@@ -204,4 +206,5 @@ app.delete('/remove-recipe/:recipe', (req, res) => {
 });
 
 // Edit recipes
+
 module.exports = app;
