@@ -73,7 +73,19 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Test</p>
+
+                        <!--Add Ingredient Form-->
+                        <h3>Add Ingredient</h3>
+                        <form method="POST" action="/new-ingredient" id="add_ingredient">
+                            Ingredient: <input type="text" name="ingredient" required>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+
+                        <!--Add Recipe Form-->
+
+
+                        <!--Initialise Data Button-->
+                        <h3>Initialise Data</h3>
                         <button type="button" class="btn btn-danger" onClick="initialise()">Initalise all data</button>
                     </div>
                     <div class="modal-footer">

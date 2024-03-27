@@ -178,7 +178,6 @@ async function getIngredients () {
         // Fetch all ingredients from the server
         const response = await fetch('/get-ingredients');
         const ingredients = await response.json();
-        console.log(ingredients);
         let ingredientlist = '';
         for (const ingredient in ingredients) {
             ingredientlist += '<ul class="ingredient">' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
@@ -189,7 +188,8 @@ async function getIngredients () {
     }
 }
 
-// Initialise function
+// Initialise function - This function is called from the HTML file
+// eslint-disable-next-line no-unused-vars
 async function initialise () {
     try {
         const response = await fetch('/initialise', { method: 'DELETE' });
@@ -197,8 +197,29 @@ async function initialise () {
             displayError('Error occured while initialising the data');
             return;
         }
+        // eslint-disable-next-line no-undef
         location.reload();
     } catch (error) {
         displayError(`Error occured while initialising the data: ${error}`);
     }
 }
+
+// New Ingredient Function
+const newIngredient = document.getElementById('add_ingredient');
+
+newIngredient.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const formData = new FormData(newIngredient);
+    const formDataJSON = JSON.stringify(Object.fromEntries(formData));
+    const response = await fetch('/new-ingredient',
+    {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: formDataJSON
+    });
+    if (response.ok) {
+        location.reload();
+    } else {
+        displayError('Error occured while adding the ingredient. Please ensure field has been filled out and ingredient does not already exist');
+    }
+});
