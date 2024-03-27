@@ -170,19 +170,23 @@ recipetag.addEventListener('click', async function (event) {
     }
 });
 
-// Get list of all ingredients for sidebar
+// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe - saves having to fetch twice (W3Schools, 2023f))
 getIngredients();
 async function getIngredients () {
     const sidebar = document.getElementById('ingredients');
+    const ingredientDropdown = document.getElementById('ingredient-list');
     try {
         // Fetch all ingredients from the server
         const response = await fetch('/get-ingredients');
         const ingredients = await response.json();
         let ingredientlist = '';
+        let ingredientListDropdown = '';
         for (const ingredient in ingredients) {
             ingredientlist += '<ul class="ingredient">' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
+            ingredientListDropdown += '<option value="' + ingredients[ingredient].ingredient + '">' + capitalise(ingredients[ingredient].ingredient) + '</option>';
         }
         sidebar.innerHTML = ingredientlist;
+        ingredientDropdown.innerHTML = ingredientListDropdown;
     } catch (error) {
         displayError(`Error occured while getting ingredients from server: ${error}`);
     }
@@ -218,7 +222,7 @@ newIngredient.addEventListener('submit', async function (event) {
         body: formDataJSON
     });
     if (response.ok) {
-        location.reload();
+        window.location.reload();
     } else {
         displayError('Error occured while adding the ingredient. Please ensure field has been filled out and ingredient does not already exist');
     }

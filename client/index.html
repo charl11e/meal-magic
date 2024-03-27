@@ -77,13 +77,27 @@
                         <!--Add Ingredient Form-->
                         <h3>Add Ingredient</h3>
                         <form method="POST" action="/new-ingredient" id="add_ingredient">
-                            Ingredient: <input type="text" name="ingredient" required>
+                            Ingredient: <input type="text" name="ingredient" required> <br>
                             <button type="submit" class="btn btn-primary">Add</button>
                         </form>
 
-                        <!--Add Recipe Form-->
+                        <br>
+                        <!--Add Recipe Form (W3Schools, 2023f)-->
+                        <h3>Add Recipe</h3>
+                        <form method="POST" action="/new-recipe" id="add_recipe">
+                            Recipe: <input type="text" name="recipe" required> <br>
+                            
+                            <label for="ingredient-list">Choose Ingredients:</label>
+                            <select name="ingredient-list" id="ingredient-list" required>
+                                
+                            </select> <br>
 
+                            Servings: <input type="number" name="servings" required> <br>
+                            Instructions: <textarea name="instructions" required>Enter Recipe Instructions:</textarea> <br>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
 
+                        <br>
                         <!--Initialise Data Button-->
                         <h3>Initialise Data</h3>
                         <button type="button" class="btn btn-danger" onClick="initialise()">Initalise all data</button>

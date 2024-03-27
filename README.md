@@ -54,6 +54,8 @@ W3Schools (Refsnes Data) (2023d) JavaScript String split(). Available at: https:
 
 W3Schools (Refsnes Data) (2023e) Bootstrap Navigation Bar. Available at: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp (Accessed: 14th March 2024)
 
+W3Schools (Refsnes Data) (2023f) HTML select Tag. Available at: https://www.w3schools.com/tags/tag_select.asp#:~:text=The%20element%20is%20used,down%20list%20will%20be%20submitted (Accessed: 27th March 2024)
+
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
 
