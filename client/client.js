@@ -1,5 +1,22 @@
 // Alerts for all errors made with help from Bootstrap Team, 2024b
 
+// Switch between light and dark mode
+// TODO: Finish
+function switchMode () {
+    // Check if logo is on light or dark mode (does not really matter what element is checked, logo is just used for simplicity)
+    if (document.getElementById('logo').classList.contains('dark')) {
+        document.getElementById('logo').classList.remove('dark');
+        document.getElementById('logo').classList.add('light');
+        document.documentElement.setAttribute('data-bs-theme', 'light'); // TODO: Cite
+        console.log("dark to light")
+    } else {
+        document.getElementById('logo').classList.remove('light');
+        document.getElementById('logo').classList.add('dark');
+        document.documentElement.setAttribute('data-bs-theme', 'dark'); // TODO: Cite
+        console.log("light to dark")
+    }
+};
+
 // Capitalise first letter of each word (FreeCodeCamp 2024)
 function capitalise (string) {
     const words = string.split(' ');
