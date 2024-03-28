@@ -80,18 +80,22 @@
                             Ingredient: <input type="text" name="ingredient" required> <br>
                             <button type="submit" class="btn btn-primary">Add</button>
                         </form>
-
                         <br>
-                        <!--Add Recipe Form (W3Schools, 2023f)-->
+
+                        <!--Add Recipe Form (W3Schools, 2023f) (Bootstrap Team, 2024f)-->
                         <h3>Add Recipe</h3>
                         <form method="POST" action="/new-recipe" id="add_recipe">
-                            Recipe: <input type="text" name="recipe" required> <br>
+                            Recipe: <input type="text" name="title" required> <br>
                             
-                            <label for="ingredient-list">Choose Ingredients:</label>
-                            <select name="ingredient-list" id="ingredient-list" required>
-                                
-                            </select> <br>
-
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="ingredient-list-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Ingredients 
+                                </button>
+                                <div class="dropdown-menu" id="ingredient-list" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                </div>
+                            </div> <br>
+        
                             Servings: <input type="number" name="servings" required> <br>
                             Instructions: <textarea name="instructions" required>Enter Recipe Instructions:</textarea> <br>
                             <button type="submit" class="btn btn-primary">Add</button>

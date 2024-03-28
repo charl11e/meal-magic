@@ -183,10 +183,18 @@ async function getIngredients () {
         let ingredientListDropdown = '';
         for (const ingredient in ingredients) {
             ingredientlist += '<ul class="ingredient">' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
-            ingredientListDropdown += '<option value="' + ingredients[ingredient].ingredient + '">' + capitalise(ingredients[ingredient].ingredient) + '</option>';
+            ingredientListDropdown += '<a class="dropdown-item ingredient-selector" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
         }
         sidebar.innerHTML = ingredientlist;
         ingredientDropdown.innerHTML = ingredientListDropdown;
+
+        // Add event listener for all ingredients in the selector when adding a new recipe
+        const ingredientSelector = document.querySelectorAll('.ingredient-selector');
+        for (const selector of ingredientSelector) {
+            selector.addEventListener('click', function () {
+                selector.classList.toggle('active');
+            });
+        };
     } catch (error) {
         displayError(`Error occured while getting ingredients from server: ${error}`);
     }
@@ -225,5 +233,34 @@ newIngredient.addEventListener('submit', async function (event) {
         window.location.reload();
     } else {
         displayError('Error occured while adding the ingredient. Please ensure field has been filled out and ingredient does not already exist');
+    }
+});
+
+// New Recipe Function (MDN Web Docs, 2023e) (W3Schools, 2024a)
+const newRecipe = document.getElementById('add_recipe');
+newRecipe.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const formData = new FormData(newRecipe);
+    let formDataJSON = JSON.stringify(Object.fromEntries(formData));
+
+    // Get all selected ingredients
+    const selectedIngredients = document.querySelectorAll('.ingredient-selector.active');
+    const ingredients = [];
+    for (const ingredient of selectedIngredients) {
+        ingredients.push(ingredient.textContent);
+    }
+    formDataJSON = formDataJSON.slice(0, -1) + ',"ingredients":' + JSON.stringify(ingredients) + '}';
+
+    // Send the data to the server
+    const response = await fetch('/new-recipe',
+    {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: formDataJSON
+    });
+    if (response.ok) {
+        window.location.reload();
+    } else {
+        displayError('Error occured while adding the recipe. Please ensure all fields have been filled out and ingredients have been selected');
     }
 });

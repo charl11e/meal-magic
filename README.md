@@ -16,6 +16,8 @@ Bootstrap Team (2024d) Modal. Available at: https://getbootstrap.com/docs/4.0/co
 
 Bootstrap Team (2024e) Buttons. Available at: https://getbootstrap.com/docs/4.0/components/buttons/ (Accessed: 26th March 2024)
 
+Bootstrap Team (2024f) Dropdowns. Available at: https://getbootstrap.com/docs/4.0/components/dropdowns/ (Accessed: 28th March 2024)
+
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)
@@ -55,6 +57,8 @@ W3Schools (Refsnes Data) (2023d) JavaScript String split(). Available at: https:
 W3Schools (Refsnes Data) (2023e) Bootstrap Navigation Bar. Available at: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp (Accessed: 14th March 2024)
 
 W3Schools (Refsnes Data) (2023f) HTML select Tag. Available at: https://www.w3schools.com/tags/tag_select.asp#:~:text=The%20element%20is%20used,down%20list%20will%20be%20submitted (Accessed: 27th March 2024)
+
+W3Schools (Refsnes Data) (2024a) JavaScript String slice(). Available at: https://www.w3schools.com/jsref/jsref_slice_string.asp (Accessed: 28th March 2024)
 
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
