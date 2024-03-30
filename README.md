@@ -46,6 +46,8 @@ StackOverflow (2012a) How to make a div vertically scrollable using CSS. Availab
 
 StackOverflow (2013a) Search box with button in textbox. Available at: https://stackoverflow.com/questions/15779957/search-box-with-button-in-textbox (Accessed: 21st March 2024)
 
+StackOverflow (2020a) Why doesn't my JS update my data-theme black. Available at: https://stackoverflow.com/questions/60225830/why-doesnt-my-js-update-my-data-theme-back (Accessed: 28th March 2024)
+
 W3Schools (Refsnes Data) (2023a) HTML Favicon. Available at: https://www.w3schools.com/html/html_favicon.asp (Accessed: 25th February 2024)
 
 W3Schools (Refsnes Data) (2023b) HTML Responsive Web Design. Available at: https://www.w3schools.com/html/html_responsive.asp (Accessed 25th February 2024)
@@ -60,6 +62,9 @@ W3Schools (Refsnes Data) (2023f) HTML select Tag. Available at: https://www.w3sc
 
 W3Schools (Refsnes Data) (2024a) JavaScript String slice(). Available at: https://www.w3schools.com/jsref/jsref_slice_string.asp (Accessed: 28th March 2024)
 
+W3Schools (Refsnes Data) (2024b) JavaScript Cookies. Available at: https://www.w3schools.com/js/js_cookies.asp (Accessed: 30th March 2024)
+
+Disabling rules for ESLint from ESLint (2024) Configure Rules. Available at: https://eslint.org/docs/latest/use/configure/rules (Accessed: 30th March 2024)
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
 

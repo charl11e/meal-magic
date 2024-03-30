@@ -1,21 +1,44 @@
 // Alerts for all errors made with help from Bootstrap Team, 2024b
 
-// Switch between light and dark mode
-// TODO: Finish
-function switchMode () {
-    // Check if logo is on light or dark mode (does not really matter what element is checked, logo is just used for simplicity)
-    if (document.getElementById('logo').classList.contains('dark')) {
-        document.getElementById('logo').classList.remove('dark');
-        document.getElementById('logo').classList.add('light');
-        document.documentElement.setAttribute('data-bs-theme', 'light'); // TODO: Cite
-        console.log("dark to light")
-    } else {
-        document.getElementById('logo').classList.remove('light');
-        document.getElementById('logo').classList.add('dark');
-        document.documentElement.setAttribute('data-bs-theme', 'dark'); // TODO: Cite
-        console.log("light to dark")
-    }
+// Switch between light and dark mode (StackOverflow, 2020a) (W3Schools, 2024b)
+// TODO: Still need to properly make sure the theme looks nice
+// Check if a cookie exists for the theme
+if (!document.cookie.includes('theme')) {
+    document.cookie = 'theme=light';
 };
+
+// Set theme to light or dark mode depending on the cookie
+if (document.cookie.includes('theme=dark')) {
+    goDark();
+}
+
+if (document.cookie.includes('theme=light')) {
+    goLight();
+}
+
+// Functions for light and dark mode
+function goLight () {
+    document.documentElement.setAttribute('data-bs-theme', 'light');
+    document.getElementById('logo').setAttribute('src', '/assets/logo-dark.png');
+    document.cookie = 'theme=light';
+}
+
+function goDark () {
+    document.documentElement.setAttribute('data-bs-theme', 'dark');
+    document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
+    document.cookie = 'theme=dark';
+}
+
+// Function to switch between light and dark mode - This function is called from the HTML file
+// eslint-disable-next-line no-unused-vars
+function switchMode () {
+    // Check if logo is on light or dark mode by checking cookies
+    if (document.cookie.includes('theme=dark')) {
+        goLight();
+    } else {
+        goDark();
+    };
+}
 
 // Capitalise first letter of each word (FreeCodeCamp 2024)
 function capitalise (string) {
