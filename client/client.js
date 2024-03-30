@@ -73,15 +73,17 @@ function changeContent (content) {
     contentSpace.innerHTML = content;
 }
 
-// Get List of all recipes for sidebar
+// Get List of all recipes for sidebar (Also adds all recipes for the dropdown when removing a recipe - saves having to fetch twice)
 getRecipes();
 async function getRecipes () {
     const sidebar = document.getElementById('recipes');
+    const removeDropdown = document.getElementById('remove-recipe-list');
     try {
         // Fetch all recipes from the server
         const response = await fetch('/get-recipes');
         const recipes = await response.json();
         let recipelist = '';
+        let dropdownlist = '';
         // Just in case a recipe is added more than once
         const recipesAdded = [];
         // Add all recipes to the sidebar
@@ -91,9 +93,11 @@ async function getRecipes () {
                 continue;
             }
             recipelist += '<ul class="recipe click">' + capitalise(recipes[recipe].title) + '</ul>';
+            dropdownlist += '<a class="dropdown-item recipe-selector" href="#">' + capitalise(recipes[recipe].title) + '</a>';
             recipesAdded.push(recipes[recipe].title);
         }
         sidebar.innerHTML = recipelist;
+        removeDropdown.innerHTML = dropdownlist;
 
         // Add an event listener for all recipes in the sidebar (MDN Web Docs 2023e)
         const recipeList = document.querySelectorAll('.recipe');
@@ -104,6 +108,14 @@ async function getRecipes () {
                 selected(recipe);
             });
         }
+
+        // Add event listener for all ingredients in the selector when adding a new recipe
+        const recipeSelector = document.querySelectorAll('.recipe-selector');
+        for (const selector of recipeSelector) {
+            selector.addEventListener('click', function () {
+                selector.classList.toggle('active');
+            });
+        };
     } catch (error) {
         displayError(`Error occured while getting recipes from server: ${error}`);
     }
@@ -210,23 +222,27 @@ recipetag.addEventListener('click', async function (event) {
     }
 });
 
-// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe - saves having to fetch twice (W3Schools, 2023f))
+// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f))
 getIngredients();
 async function getIngredients () {
     const sidebar = document.getElementById('ingredients');
     const ingredientDropdown = document.getElementById('ingredient-list');
+    const ingredientDropdownRemove = document.getElementById('remove-ingredient-list');
     try {
         // Fetch all ingredients from the server
         const response = await fetch('/get-ingredients');
         const ingredients = await response.json();
         let ingredientlist = '';
         let ingredientListDropdown = '';
+        let ingredientListDropdownRemove = '';
         for (const ingredient in ingredients) {
             ingredientlist += '<ul class="ingredient">' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
             ingredientListDropdown += '<a class="dropdown-item ingredient-selector" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
+            ingredientListDropdownRemove += '<a class="dropdown-item ingredient-selector remove" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
         }
         sidebar.innerHTML = ingredientlist;
         ingredientDropdown.innerHTML = ingredientListDropdown;
+        ingredientDropdownRemove.innerHTML = ingredientListDropdownRemove;
 
         // Add event listener for all ingredients in the selector when adding a new recipe
         const ingredientSelector = document.querySelectorAll('.ingredient-selector');
@@ -304,3 +320,34 @@ newRecipe.addEventListener('submit', async function (event) {
         displayError('Error occured while adding the recipe. Please ensure all fields have been filled out and ingredients have been selected');
     }
 });
+
+// Remove Recipe/Ingredient Function - This function is called from the HTML file
+// eslint-disable-next-line no-unused-vars
+async function remove () {
+    const recipesSelected = document.querySelectorAll('.recipe-selector.active');
+    const ingredientsSelected = document.querySelectorAll('.ingredient-selector.remove.active');
+    if (recipesSelected.length === 0 && ingredientsSelected.length === 0) {
+        displayError('Please select a recipe or ingredient to remove');
+    } else {
+        // Iterate over all selected recipes
+        for (const recipe of recipesSelected) {
+            // Send a delete request to the server
+            const response = await fetch('/remove-recipe/' + recipe.textContent, { method: 'DELETE' });
+            if (!response.ok) {
+                displayError('Error occured while removing the recipe');
+            }
+        }
+
+        // Iterate over all selected ingredients
+        for (const ingredient of ingredientsSelected) {
+            // Send a delete request to the server
+            const response = await fetch('/remove-ingredient/' + ingredient.textContent, { method: 'DELETE' });
+            if (!response.ok) {
+                displayError('Error occured while removing the ingredient');
+            }
+        }
+
+        // Reload the page
+        window.location.reload();
+    }
+}

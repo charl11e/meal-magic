@@ -85,7 +85,7 @@
                         <!--Add Recipe Form (W3Schools, 2023f) (Bootstrap Team, 2024f)-->
                         <h3>Add Recipe</h3>
                         <form method="POST" action="/new-recipe" id="add_recipe">
-                            Recipe: <input type="text" name="title" required> <br>
+                            Recipe: <input type="text" name="title" required> <br><br>
                             
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="ingredient-list-button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -96,7 +96,7 @@
                                 </div>
                             </div> <br>
         
-                            Servings: <input type="number" name="servings" required> <br>
+                            Servings: <input type="number" name="servings" required> <br><br>
                             Instructions: <textarea name="instructions" required>Enter Recipe Instructions:</textarea> <br>
                             <button type="submit" class="btn btn-primary">Add</button>
                         </form>
@@ -105,9 +105,29 @@
                         <!--Switch Between Light and Dark Mode-->
                         <h3>Visual Settings</h3>
                         <button type="button" class="btn btn-primary" onClick="switchMode()">Toggle Theme</button>
-
-                        <br>
+                        <br><br>
+    
+                        <!--Remove an ingredient/recipe-->
+                        <h3>Remove Data</h3>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="remove-recipe-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Remove Recipe
+                            </button>
+                            <div class="dropdown-menu" id="remove-recipe-list" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                            </div>
+                        </div> <br>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="remove-ingredient-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Remove Ingredient
+                            </button>
+                            <div class="dropdown-menu" id="remove-ingredient-list" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                            </div>
+                        </div> <br>
+                        <button type="button" class="btn btn-danger" onClick="remove()">Remove</button>
                         <!--Initialise Data Button-->
+                        <br><br>
                         <h3>Initialise Data</h3>
                         <button type="button" class="btn btn-danger" onClick="initialise()">Initalise all data</button>
 
