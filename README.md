@@ -18,6 +18,8 @@ Bootstrap Team (2024e) Buttons. Available at: https://getbootstrap.com/docs/4.0/
 
 Bootstrap Team (2024f) Dropdowns. Available at: https://getbootstrap.com/docs/4.0/components/dropdowns/ (Accessed: 28th March 2024)
 
+Bootstrap Team (2024g) Checks and Radios. Available at: https://getbootstrap.com/docs/5.1/forms/checks-radios/ (Accessed: 31st March 2024)
+
 DigitalOcean (2020) How to use the res Object in Express. Available at: https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs (Accessed: 25th February 2024)
 
 GeekforGeeks (2024) Convert a String to an Integer in Javascript. Available at: https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/ (Accessed: 29th February 2024)

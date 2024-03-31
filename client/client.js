@@ -222,7 +222,10 @@ recipetag.addEventListener('click', async function (event) {
     }
 });
 
-// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f))
+// Match Recipes based on ingredients
+
+
+// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f) (Bootstrap Team, 2024g))
 getIngredients();
 async function getIngredients () {
     const sidebar = document.getElementById('ingredients');
@@ -236,7 +239,7 @@ async function getIngredients () {
         let ingredientListDropdown = '';
         let ingredientListDropdownRemove = '';
         for (const ingredient in ingredients) {
-            ingredientlist += '<ul class="ingredient">' + capitalise(ingredients[ingredient].ingredient) + '</ul>';
+            ingredientlist += `<div class="form-check form-switch"> <input class="ingredient form-check-input" type="checkbox" role="switch" id="switch-${capitalise(ingredients[ingredient].ingredient)}"> <label class="form-check-label" for="switch-${capitalise(ingredients[ingredient].ingredient)}">${capitalise(ingredients[ingredient].ingredient)}</label></div>`;
             ingredientListDropdown += '<a class="dropdown-item ingredient-selector" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
             ingredientListDropdownRemove += '<a class="dropdown-item ingredient-selector remove" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
         }
