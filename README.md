@@ -38,6 +38,8 @@ MDN Web Docs (2023d) Array.isArray(). Available at: https://developer.mozilla.or
 
 MDN Web Docs (2023e) Node: textContent property. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent (Accessed: 14th March 2024)
 
+MDN Web Docs (2023f) Document: querySelector() method. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector (Accessed: 1st April 2024)
+
 StackAbuse (2023) How to return status codes in Express. Available at: https://stackabuse.com/bytes/how-to-return-status-codes-in-express/ (Accessed: 27th February 2024)
 
 StackOverflow (2008a) How to force DIV block to extend to bottom of a page even if it has no content. Available at: https://stackoverflow.com/questions/147528/how-do-i-force-a-div-block-to-extend-to-the-bottom-of-a-page-even-if-it-has-no-c (Accessed: 15th March 2024)
@@ -49,6 +51,8 @@ StackOverflow (2012a) How to make a div vertically scrollable using CSS. Availab
 StackOverflow (2013a) Search box with button in textbox. Available at: https://stackoverflow.com/questions/15779957/search-box-with-button-in-textbox (Accessed: 21st March 2024)
 
 StackOverflow (2020a) Why doesn't my JS update my data-theme black. Available at: https://stackoverflow.com/questions/60225830/why-doesnt-my-js-update-my-data-theme-back (Accessed: 28th March 2024)
+
+StackOverflow (2020b) How to Check Switch Bootstrap 5 with Plain Javascript. Available at: https://stackoverflow.com/questions/65229118/how-to-check-switch-bootstrap-5-with-plain-javascript (Accessed: 1st April 2024)
 
 W3Schools (Refsnes Data) (2023a) HTML Favicon. Available at: https://www.w3schools.com/html/html_favicon.asp (Accessed: 25th February 2024)
 
@@ -65,6 +69,8 @@ W3Schools (Refsnes Data) (2023f) HTML select Tag. Available at: https://www.w3sc
 W3Schools (Refsnes Data) (2024a) JavaScript String slice(). Available at: https://www.w3schools.com/jsref/jsref_slice_string.asp (Accessed: 28th March 2024)
 
 W3Schools (Refsnes Data) (2024b) JavaScript Cookies. Available at: https://www.w3schools.com/js/js_cookies.asp (Accessed: 30th March 2024)
+
+W3Schools (Refsnes Data) (2024c) JavaScript Array toString(). Available at: https://www.w3schools.com/jsref/jsref_tostring_array.asp (Accessed: 1st April 2024)
 
 Disabling rules for ESLint from ESLint (2024) Configure Rules. Available at: https://eslint.org/docs/latest/use/configure/rules (Accessed: 30th March 2024)
 # Image References

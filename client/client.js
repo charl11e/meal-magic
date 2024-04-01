@@ -151,7 +151,7 @@ async function getIngredients () {
         let ingredientListDropdown = '';
         let ingredientListDropdownRemove = '';
         for (const ingredient in ingredients) {
-            ingredientlist += `<div class="form-check form-switch"> <input class="ingredient form-check-input" type="checkbox" role="switch" id="switch-${capitalise(ingredients[ingredient].ingredient)}"> <label class="form-check-label" for="switch-${capitalise(ingredients[ingredient].ingredient)}">${capitalise(ingredients[ingredient].ingredient)}</label></div>`;
+            ingredientlist += `<div class="form-check form-switch ingredient-list"> <input class="ingredient form-check-input" type="checkbox" role="switch" id="switch-${capitalise(ingredients[ingredient].ingredient)}"> <label class="form-check-label ingredient" for="switch-${capitalise(ingredients[ingredient].ingredient)}">${capitalise(ingredients[ingredient].ingredient)}</label></div>`;
             ingredientListDropdown += '<a class="dropdown-item ingredient-selector" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
             ingredientListDropdownRemove += '<a class="dropdown-item ingredient-selector remove" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
         }
@@ -220,6 +220,44 @@ recipetag.addEventListener('click', async function (event) {
     }
 });
 
+// Match Recipes based on ingredients (StackOverflow, 2020b) (MDN Web Docs, 2023f)
+const matchtag = document.getElementById('match-tag');
+matchtag.addEventListener('click', async function (event) {
+    // Get a list of ingredients that are toggled on and send a request to the server to match the recipes
+    try {
+        // Get all selected ingredients
+        const selectedIngredients = document.querySelectorAll('.ingredient-list');
+        const toggled = [];
+        for (const ingredient of selectedIngredients) {
+            if (ingredient.querySelector('.ingredient').checked) {
+                toggled.push(ingredient.textContent.slice(2));
+            }
+        }
+        // Check if any ingredients are selected
+        if (toggled.length === 0) {
+            changeContent('<h1>Please select at least one ingredient to match recipes</h1>');
+            return;
+        }
+        // Send the list of ingredients to the server (W3Schools, 2024c)
+        const response = await fetch('/match-recipes?search=' + toggled.toString());
+        const recipes = await response.json();
+        if (recipes.length === 0) {
+            changeContent('<h1>No recipes found</h1>');
+            return;
+        }
+        let content = '';
+        for (const recipe in recipes) {
+            let ingredients = '';
+            for (const ingredient of recipes[recipe].ingredients) {
+                ingredients += '<li>' + capitalise(ingredient) + '</li>';
+            }
+            content += '<h3>' + capitalise(recipes[recipe].title) + '</h3><p>Servings: ' + recipes[recipe].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[recipe].instructions + '</p>';
+        }
+        changeContent(content);
+    } catch (error) {
+        displayError(`Error occured while getting recipes for specific ingredients: ${error}`);
+    }
+});
 
 
 // Function to make search bar work
@@ -370,10 +408,4 @@ document.getElementById('remove-button').addEventListener('click', async functio
         // Reload the page
         window.location.reload();
     }
-});
-
-// Match Recipes based on ingredients
-const matchtag = document.getElementById('match-tag');
-matchtag.addEventListener('click', async function (event) {
-    selected(matchtag);
 });
