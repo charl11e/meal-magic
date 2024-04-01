@@ -1,7 +1,13 @@
+/* eslint-disable no-multiple-empty-lines */
+// Disabled above rule as it allows me to separate out my code easier for different functions
+
+
 // Alerts for all errors made with help from Bootstrap Team, 2024b
 
+
+
 // Switch between light and dark mode (StackOverflow, 2020a) (W3Schools, 2024b)
-// TODO: Still need to properly make sure the theme looks nice
+
 // Check if a cookie exists for the theme
 if (!document.cookie.includes('theme')) {
     document.cookie = 'theme=light';
@@ -23,22 +29,26 @@ function goLight () {
     document.cookie = 'theme=light';
 }
 
+
 function goDark () {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
     document.cookie = 'theme=dark';
 }
 
-// Function to switch between light and dark mode - This function is called from the HTML file
-// eslint-disable-next-line no-unused-vars
-function switchMode () {
+// Switch between light and dark mode
+document.getElementById('theme-tag').addEventListener('click', function () {
     // Check if logo is on light or dark mode by checking cookies
     if (document.cookie.includes('theme=dark')) {
         goLight();
     } else {
         goDark();
     };
-}
+});
+
+
+
+// Miscellaneous Functions
 
 // Capitalise first letter of each word (FreeCodeCamp 2024)
 function capitalise (string) {
@@ -58,8 +68,10 @@ function displayError (err) {
 function selected (tag) {
     const hometag = document.getElementById('home-tag');
     const recipetag = document.getElementById('recipes-tag');
+    const matchtag = document.getElementById('match-tag');
     hometag.classList.remove('active');
     recipetag.classList.remove('active');
+    matchtag.classList.remove('active');
     const alltags = document.querySelectorAll('.recipe');
     for (const tag of alltags) {
         tag.classList.remove('selected');
@@ -72,6 +84,10 @@ function changeContent (content) {
     const contentSpace = document.getElementById('content');
     contentSpace.innerHTML = content;
 }
+
+
+
+// Functions that get data from the server and set up the page with the data
 
 // Get List of all recipes for sidebar (Also adds all recipes for the dropdown when removing a recipe - saves having to fetch twice)
 getRecipes();
@@ -121,6 +137,44 @@ async function getRecipes () {
     }
 }
 
+// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f) (Bootstrap Team, 2024g))
+getIngredients();
+async function getIngredients () {
+    const sidebar = document.getElementById('ingredients');
+    const ingredientDropdown = document.getElementById('ingredient-list');
+    const ingredientDropdownRemove = document.getElementById('remove-ingredient-list');
+    try {
+        // Fetch all ingredients from the server
+        const response = await fetch('/get-ingredients');
+        const ingredients = await response.json();
+        let ingredientlist = '';
+        let ingredientListDropdown = '';
+        let ingredientListDropdownRemove = '';
+        for (const ingredient in ingredients) {
+            ingredientlist += `<div class="form-check form-switch"> <input class="ingredient form-check-input" type="checkbox" role="switch" id="switch-${capitalise(ingredients[ingredient].ingredient)}"> <label class="form-check-label" for="switch-${capitalise(ingredients[ingredient].ingredient)}">${capitalise(ingredients[ingredient].ingredient)}</label></div>`;
+            ingredientListDropdown += '<a class="dropdown-item ingredient-selector" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
+            ingredientListDropdownRemove += '<a class="dropdown-item ingredient-selector remove" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
+        }
+        sidebar.innerHTML = ingredientlist;
+        ingredientDropdown.innerHTML = ingredientListDropdown;
+        ingredientDropdownRemove.innerHTML = ingredientListDropdownRemove;
+
+        // Add event listener for all ingredients in the selector when adding a new recipe
+        const ingredientSelector = document.querySelectorAll('.ingredient-selector');
+        for (const selector of ingredientSelector) {
+            selector.addEventListener('click', function () {
+                selector.classList.toggle('active');
+            });
+        };
+    } catch (error) {
+        displayError(`Error occured while getting ingredients from server: ${error}`);
+    }
+}
+
+
+
+// Functions that get details of specific elements to display on the page
+
 // Get details of a recipe
 async function getRecipe (recipe) {
     try {
@@ -143,10 +197,38 @@ async function getRecipe (recipe) {
     }
 }
 
+// Get all recipes
+const recipetag = document.getElementById('recipes-tag');
+recipetag.addEventListener('click', async function (event) {
+    // Change boldness on tags
+    selected(document.getElementById('recipes-tag'));
+    // Get all recipes and display them
+    try {
+        const response = await fetch('/get-recipes');
+        const recipes = await response.json();
+        let content = '';
+        for (const recipe in recipes) {
+            let ingredients = '';
+            for (const ingredient of recipes[recipe].ingredients) {
+                ingredients += '<li>' + capitalise(ingredient) + '</li>';
+            }
+            content += '<h3>' + capitalise(recipes[recipe].title) + '</h3><p>Servings: ' + recipes[recipe].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[recipe].instructions + '</p>';
+        }
+        changeContent(content);
+    } catch (error) {
+        displayError(`Error occured while getting recipes from server: ${error}`);
+    }
+});
+
+
+
+// Function to make search bar work
+
 // Make Search Bar work
 const search = document.getElementById('searchbox');
 search.addEventListener('submit', async function (event) {
     event.preventDefault();
+    selected(document.getElementById('home-tag'));
     const formData = new FormData(search);
     const searchParams = new URLSearchParams(formData);
 
@@ -192,76 +274,12 @@ search.addEventListener('submit', async function (event) {
     }
 });
 
-// Get all recipes
-const recipetag = document.getElementById('recipes-tag');
-recipetag.addEventListener('click', async function (event) {
-    // Change boldness on tags
-    const alltags = document.querySelectorAll('.recipe');
-    for (const tag of alltags) {
-        tag.classList.remove('selected');
-    }
-    const hometag = document.getElementById('home-tag');
-    hometag.classList.remove('active');
-    recipetag.classList.add('active');
-
-    // Get all recipes and display them
-    try {
-        const response = await fetch('/get-recipes');
-        const recipes = await response.json();
-        let content = '';
-        for (const recipe in recipes) {
-            let ingredients = '';
-            for (const ingredient of recipes[recipe].ingredients) {
-                ingredients += '<li>' + capitalise(ingredient) + '</li>';
-            }
-            content += '<h3>' + capitalise(recipes[recipe].title) + '</h3><p>Servings: ' + recipes[recipe].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[recipe].instructions + '</p>';
-        }
-        changeContent(content);
-    } catch (error) {
-        displayError(`Error occured while getting recipes from server: ${error}`);
-    }
-});
-
-// Match Recipes based on ingredients
 
 
-// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f) (Bootstrap Team, 2024g))
-getIngredients();
-async function getIngredients () {
-    const sidebar = document.getElementById('ingredients');
-    const ingredientDropdown = document.getElementById('ingredient-list');
-    const ingredientDropdownRemove = document.getElementById('remove-ingredient-list');
-    try {
-        // Fetch all ingredients from the server
-        const response = await fetch('/get-ingredients');
-        const ingredients = await response.json();
-        let ingredientlist = '';
-        let ingredientListDropdown = '';
-        let ingredientListDropdownRemove = '';
-        for (const ingredient in ingredients) {
-            ingredientlist += `<div class="form-check form-switch"> <input class="ingredient form-check-input" type="checkbox" role="switch" id="switch-${capitalise(ingredients[ingredient].ingredient)}"> <label class="form-check-label" for="switch-${capitalise(ingredients[ingredient].ingredient)}">${capitalise(ingredients[ingredient].ingredient)}</label></div>`;
-            ingredientListDropdown += '<a class="dropdown-item ingredient-selector" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
-            ingredientListDropdownRemove += '<a class="dropdown-item ingredient-selector remove" href="#">' + capitalise(ingredients[ingredient].ingredient) + '</a>';
-        }
-        sidebar.innerHTML = ingredientlist;
-        ingredientDropdown.innerHTML = ingredientListDropdown;
-        ingredientDropdownRemove.innerHTML = ingredientListDropdownRemove;
+// Functions that are used within the modify tab
 
-        // Add event listener for all ingredients in the selector when adding a new recipe
-        const ingredientSelector = document.querySelectorAll('.ingredient-selector');
-        for (const selector of ingredientSelector) {
-            selector.addEventListener('click', function () {
-                selector.classList.toggle('active');
-            });
-        };
-    } catch (error) {
-        displayError(`Error occured while getting ingredients from server: ${error}`);
-    }
-}
-
-// Initialise function - This function is called from the HTML file
-// eslint-disable-next-line no-unused-vars
-async function initialise () {
+// Initialise function
+document.getElementById('initialise-button').addEventListener('click', async function () {
     try {
         const response = await fetch('/initialise', { method: 'DELETE' });
         if (response.status !== 200) {
@@ -273,7 +291,7 @@ async function initialise () {
     } catch (error) {
         displayError(`Error occured while initialising the data: ${error}`);
     }
-}
+});
 
 // New Ingredient Function
 const newIngredient = document.getElementById('add_ingredient');
@@ -324,9 +342,8 @@ newRecipe.addEventListener('submit', async function (event) {
     }
 });
 
-// Remove Recipe/Ingredient Function - This function is called from the HTML file
-// eslint-disable-next-line no-unused-vars
-async function remove () {
+// Remove Recipe/Ingredient Function
+document.getElementById('remove-button').addEventListener('click', async function () {
     const recipesSelected = document.querySelectorAll('.recipe-selector.active');
     const ingredientsSelected = document.querySelectorAll('.ingredient-selector.remove.active');
     if (recipesSelected.length === 0 && ingredientsSelected.length === 0) {
@@ -353,4 +370,10 @@ async function remove () {
         // Reload the page
         window.location.reload();
     }
-}
+});
+
+// Match Recipes based on ingredients
+const matchtag = document.getElementById('match-tag');
+matchtag.addEventListener('click', async function (event) {
+    selected(matchtag);
+});
