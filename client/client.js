@@ -37,7 +37,7 @@ function goDark () {
 }
 
 // Switch between light and dark mode
-document.getElementById('theme-tag').addEventListener('click', function () {
+document.getElementById('theme-toggle').addEventListener('click', function () {
     // Check if logo is on light or dark mode by checking cookies
     if (document.cookie.includes('theme=dark')) {
         goLight();
@@ -69,9 +69,9 @@ function selected (tag) {
     const hometag = document.getElementById('home-tag');
     const recipetag = document.getElementById('recipes-tag');
     const matchtag = document.getElementById('match-tag');
-    hometag.classList.remove('active');
-    recipetag.classList.remove('active');
-    matchtag.classList.remove('active');
+    hometag.classList.remove('selected');
+    recipetag.classList.remove('selected');
+    matchtag.classList.remove('selected');
     const alltags = document.querySelectorAll('.recipe');
     for (const tag of alltags) {
         tag.classList.remove('selected');
