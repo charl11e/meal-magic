@@ -22,12 +22,13 @@ if (document.cookie.includes('theme=light')) {
     goLight();
 }
 
-// Functions for light and dark mode
+// Functions for light and dark mode (StackOverflow, 2016a)
 function goLight () {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     document.getElementById('logo').setAttribute('src', '/assets/logo-dark.png');
     document.getElementById('sidebar').classList.add('sidebar-light');
     document.getElementById('sidebar').classList.remove('sidebar-dark');
+    document.documentElement.style.setProperty('--selected-color', 'black');
     document.cookie = 'theme=light';
 }
 
@@ -37,6 +38,7 @@ function goDark () {
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
     document.getElementById('sidebar').classList.remove('sidebar-light');
     document.getElementById('sidebar').classList.add('sidebar-dark');
+    document.documentElement.style.setProperty('--selected-color', 'white');
     document.cookie = 'theme=dark';
 }
 
