@@ -10,7 +10,7 @@
 
 // Check if a cookie exists for the theme
 if (!document.cookie.includes('theme')) {
-    document.cookie = 'theme=light';
+    document.cookie = 'theme=dark';
 };
 
 // Set theme to light or dark mode depending on the cookie
@@ -26,6 +26,8 @@ if (document.cookie.includes('theme=light')) {
 function goLight () {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     document.getElementById('logo').setAttribute('src', '/assets/logo-dark.png');
+    document.getElementById('sidebar').classList.add('sidebar-light');
+    document.getElementById('sidebar').classList.remove('sidebar-dark');
     document.cookie = 'theme=light';
 }
 
@@ -33,6 +35,8 @@ function goLight () {
 function goDark () {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
+    document.getElementById('sidebar').classList.remove('sidebar-light');
+    document.getElementById('sidebar').classList.add('sidebar-dark');
     document.cookie = 'theme=dark';
 }
 

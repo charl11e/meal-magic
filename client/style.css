@@ -6,7 +6,6 @@
 /* Navbar (StackOverflow, 2011a) */
 .navbar-brand {
     font-size: 25px;
-    color: #fff;
     font-weight:bold;
 }
 
@@ -35,13 +34,22 @@
     top:0;
 }
 
-/* Sidebar (StackOverflow, 2012a) */
-#sidebar {
+/* Sidebar for dark mode (StackOverflow, 2012a) */
+.sidebar-dark {
     overflow:auto;
     float:left;
     width: 250px;
     height:100%;
     border-right:3px solid white;
+}
+
+/* Sidebar for light mode (StackOverflow, 2012a) */
+.sidebar-light {
+    overflow:auto;
+    float:left;
+    width: 250px;
+    height:100%;
+    border-right:3px solid black;
 }
 
 /* (StackOverflow, 2008a) */
