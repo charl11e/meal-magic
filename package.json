@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest"
+    "test": "jest",
+    "pretest": "eslint ."
   },
   "author": "john.c.livesey-shorrock@durham.ac.uk",
   "license": "ISC",

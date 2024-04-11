@@ -1,4 +1,8 @@
+// (StackOverflow, 2015a) - For implementing ESLint in Jest tests (even though it is not required)
 {
+    "env": {
+        "jest": true
+    },
     "extends": "standard",
     "rules": {
         "semi": [2, "always"],

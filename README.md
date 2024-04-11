@@ -58,6 +58,8 @@ StackOverflow (2020b) How to Check Switch Bootstrap 5 with Plain Javascript. Ava
 
 StackOverflow (2016a) How do I edit a CSS variable using JS? Available at: https://stackoverflow.com/questions/41370741/how-do-i-edit-a-css-variable-using-js (Accessed: 10th April 2024)
 
+StackOverflow (2015a) How to use ESLint with Jest. Available at: https://stackoverflow.com/questions/31629389/how-to-use-eslint-with-jest (Accessed: 11th April 2024)
+
 W3Schools (Refsnes Data) (2023a) HTML Favicon. Available at: https://www.w3schools.com/html/html_favicon.asp (Accessed: 25th February 2024)
 
 W3Schools (Refsnes Data) (2023b) HTML Responsive Web Design. Available at: https://www.w3schools.com/html/html_responsive.asp (Accessed 25th February 2024)
