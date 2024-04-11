@@ -28,6 +28,10 @@ FreeCodeCamp (2020) How to Capitalize the First Letter of Each Word in JavaScrip
 
 FreeCodeCamp (2023) Javascript Refresh Page - How to reload a page in JS. Available at: https://www.freecodecamp.org/news/javascript-refresh-page-how-to-reload-a-page-in-js/ (Accessed: 15th March 2024)
 
+Jest (2023a) Using Matchers. Available at: https://jestjs.io/docs/using-matchers (Accessed: 11th April 2024)
+
+Medium (2022a) API Testing using SuperTest! Available at: https://medium.com/@iamfaisalkhatri/api-testing-using-supertest-ea37522fa329 (Accessed: 11th April 2024)
+
 MDN Web Docs (2023a) Arrow function expressions. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions (Accessed: 27th February 2024)
 
 MDN Web Docs (2023b) Control flow and error handling. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling (Accessed: 27th February 2024)

@@ -26,7 +26,14 @@ function initalise () {
     ingredients = [
         { ingredient: 'potato' },
         { ingredient: 'butter' },
-        { ingredient: 'milk' }
+        { ingredient: 'milk' },
+        { ingredient: 'flour' },
+        { ingredient: 'sugar' },
+        { ingredient: 'eggs' },
+        { ingredient: 'salt' },
+        { ingredient: 'pepper' },
+        { ingredient: 'oil' },
+        { ingredient: 'onion' }
     ];
     recipes = [
         {
@@ -34,6 +41,18 @@ function initalise () {
             servings: 4,
             ingredients: ['potato', 'butter', 'milk'],
             instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency'
+        },
+        {
+            title: 'pancakes',
+            servings: 4,
+            ingredients: ['flour', 'sugar', 'eggs', 'milk'],
+            instructions: '1) Mix all ingredients together 2) Fry in a pan until golden brown 3) Top with sugar or other desired toppings'
+        },
+        {
+            title: 'omelettes',
+            servings: 2,
+            ingredients: ['eggs', 'salt', 'pepper', 'oil', 'onion'],
+            instructions: '1) Beat eggs and add salt and pepper 2) Fry in a pan with oil and onion'
         }
     ];
     write('./ingredients.json', ingredients);
