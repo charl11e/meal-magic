@@ -106,3 +106,66 @@ describe('GET /search-ingredients', () => {
         });
     });
 });
+
+// Test /search-recipes path
+describe('GET /search-recipes', () => {
+    test('GET /search-recipes returns status 200 if a search query is specified', () => {
+        return request(app).get('/search-recipes?search=test').expect(200);
+    });
+
+    test('GET /search-recipes returns JSON if a search query is specified', () => {
+        return request(app).get('/search-recipes?search=test').expect('Content-Type', /json/);
+    });
+
+    test('GET /search-recipes returns status 400 if a search query is not specified', () => {
+        return request(app).get('/search-recipes').expect(400);
+    });
+
+    test('GET /search-recipes returns HTML if a search query is not specified', () => {
+        return request(app).get('/search-recipes').expect('Content-Type', /html/);
+    });
+
+    test('GET /search-recipes returns status 400 if search query is empty', () => {
+        return request(app).get('/search-recipes?search=').expect(400);
+    });
+
+    test('GET /search-recipes returns HTML if search query is empty', () => {
+        return request(app).get('/search-recipes?search=').expect('Content-Type', /html/);
+    });
+
+    test('GET /search-recipes correctly returns list of recipes that match the search query based on title', () => {
+        return request(app).get('/search-recipes?search=pancakes').then(response => {
+            expect(response.body).toEqual([{ title: 'pancakes', servings: 4, ingredients: ['flour', 'sugar', 'eggs', 'milk'], instructions: '1) Mix all ingredients together 2) Fry in a pan until golden brown 3) Top with sugar or other desired toppings' }]);
+        });
+    });
+
+    test('GET /search-recipes correctly returns list of recipes that match the search query based on servings', () => {
+        return request(app).get('/search-recipes?search=2').then(response => {
+            expect(response.body).toEqual([{ title: 'omelettes', servings: 2, ingredients: ['eggs', 'salt', 'pepper', 'oil', 'onion'], instructions: '1) Beat eggs and add salt and pepper 2) Fry in a pan with oil and onion' }]);
+        });
+    });
+
+    test('GET /search-recipes will return multiple recipes if the search query matches multiple recipes', () => {
+        return request(app).get('/search-recipes?search=4').then(response => {
+            expect(response.body).toEqual([{ title: 'mashed potatoes', servings: 4, ingredients: ['potato', 'butter', 'milk'], instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency' }, { title: 'pancakes', servings: 4, ingredients: ['flour', 'sugar', 'eggs', 'milk'], instructions: '1) Mix all ingredients together 2) Fry in a pan until golden brown 3) Top with sugar or other desired toppings' }]);
+        });
+    });
+
+    test('GET /search-recipes returns partial matches', () => {
+        return request(app).get('/search-recipes?search=ome').then(response => {
+            expect(response.body).toEqual([{ title: 'omelettes', servings: 2, ingredients: ['eggs', 'salt', 'pepper', 'oil', 'onion'], instructions: '1) Beat eggs and add salt and pepper 2) Fry in a pan with oil and onion' }]);
+        });
+    });
+
+    test('GET /search-recipes will return an empty array if the search query does not match any recipes', () => {
+        return request(app).get('/search-recipes?search=test').then(response => {
+            expect(response.body).toEqual([]);
+        });
+    });
+
+    test('GET /search-recipes is case-insensitive', () => {
+        return request(app).get('/search-recipes?search=PaNcAkEs').then(response => {
+            expect(response.body).toEqual([{ title: 'pancakes', servings: 4, ingredients: ['flour', 'sugar', 'eggs', 'milk'], instructions: '1) Mix all ingredients together 2) Fry in a pan until golden brown 3) Top with sugar or other desired toppings' }]);
+        });
+    });
+});
