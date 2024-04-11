@@ -56,7 +56,53 @@ describe('GET /search-ingredients', () => {
         return request(app).get('/search-ingredients?search=test').expect(200);
     });
 
+    test('GET /search-ingredients returns JSON if a search query is specified', () => {
+        return request(app).get('/search-ingredients?search=test').expect('Content-Type', /json/);
+    });
+
     test('GET /search-ingredients returns status 400 if a search query is not specified', () => {
         return request(app).get('/search-ingredients').expect(400);
+    });
+
+    test('GET /search-ingredients returns HTML if a search query is not specified', () => {
+        return request(app).get('/search-ingredients').expect('Content-Type', /html/);
+    });
+
+    test('GET /search-ingredients returns status 400 if search query is empty', () => {
+        return request(app).get('/search-ingredients?search=').expect(400);
+    });
+
+    test('GET /search-ingredients returns HTML if search query is empty', () => {
+        return request(app).get('/search-ingredients?search=').expect('Content-Type', /html/);
+    });
+
+    test('GET /search-ingredients correctly returns list of ingredients that match the search query', () => {
+        return request(app).get('/search-ingredients?search=onion').then(response => {
+            expect(response.body).toEqual([{ ingredient: 'onion' }]);
+        });
+    });
+
+    test('GET /search-ingredients will return multiple ingredients if the search query matches multiple ingredients', () => {
+        return request(app).get('/search-ingredients?search=p').then(response => {
+            expect(response.body).toEqual([{ ingredient: 'potato' }, { ingredient: 'pepper' }]);
+        });
+    });
+
+    test('GET /search-ingredients returns partial matches', () => {
+        return request(app).get('/search-ingredients?search=oni').then(response => {
+            expect(response.body).toEqual([{ ingredient: 'onion' }]);
+        });
+    });
+
+    test('GET /search-ingredients will return an empty array if the search query does not match any ingredients', () => {
+        return request(app).get('/search-ingredients?search=test').then(response => {
+            expect(response.body).toEqual([]);
+        });
+    });
+
+    test('GET /search-ingredients is case-insensitive', () => {
+        return request(app).get('/search-ingredients?search=OnIoN').then(response => {
+            expect(response.body).toEqual([{ ingredient: 'onion' }]);
+        });
     });
 });
