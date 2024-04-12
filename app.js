@@ -185,10 +185,14 @@ app.get('/match-recipes', (req, res) => {
     }
 
     // Split the search query into an array of ingredients (W3Schools, 2023d)
-    const query = req.query.search.split(',');
+    let query = req.query.search.split(',');
     for (const i in query) {
         query[i] = query[i].toLowerCase();
     }
+
+    // Check that every ingredient is unique (MDN Web Docs, 2024b)
+    query = new Set(query);
+    query = Array.from(query);
 
     // Search for recipes that use the ingredients (must contain ALL ingredients)
     const results = [];
@@ -224,6 +228,13 @@ app.delete('/remove-recipe/:recipe', (req, res) => {
     write('./recipes.json', recipes, res);
 });
 
-// Edit recipes
+// Endpoints to check that an ingredient or recipe is specified for /remove-recipe and /remove-ingredient endpoints
+app.delete('/remove-ingredient', (req, res) => {
+    res.status(400).send('Ingredient must be specified');
+});
+
+app.delete('/remove-recipe', (req, res) => {
+    res.status(400).send('Recipe must be specified');
+});
 
 module.exports = app;

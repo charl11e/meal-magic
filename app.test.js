@@ -169,3 +169,101 @@ describe('GET /search-recipes', () => {
         });
     });
 });
+
+// Test /match-recipes path
+describe('GET /match-recipes', () => {
+    test('GET /match-recipes returns status 200 if a search query is specified', () => {
+        return request(app).get('/match-recipes?search=test').expect(200);
+    });
+
+    test('GET /match-recipes returns JSON if a search query is specified', () => {
+        return request(app).get('/match-recipes?search=test').expect('Content-Type', /json/);
+    });
+
+    test('GET /match-recipes returns status 400 if a search query is not specified', () => {
+        return request(app).get('/match-recipes').expect(400);
+    });
+
+    test('GET /match-recipes returns HTML if a search query is not specified', () => {
+        return request(app).get('/match-recipes').expect('Content-Type', /html/);
+    });
+
+    test('GET /match-recipes returns status 400 if search query is empty', () => {
+        return request(app).get('/match-recipes?search=').expect(400);
+    });
+
+    test('GET /match-recipes returns HTML if search query is empty', () => {
+        return request(app).get('/match-recipes?search=').expect('Content-Type', /html/);
+    });
+
+    test('GET /match-recipes correctly returns a list of recipes that can be made with the specified ingredients', () => {
+        return request(app).get('/match-recipes?search=potato,butter,milk').then(response => {
+            expect(response.body).toEqual([{ title: 'mashed potatoes', servings: 4, ingredients: ['potato', 'butter', 'milk'], instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency' }]);
+        });
+    });
+
+    test('GET /match-recipes will return multiple recipes if the search query matches multiple recipes', () => {
+        return request(app).get('/match-recipes?search=potato,butter,milk,flour,sugar,eggs').then(response => {
+            expect(response.body).toEqual([{ title: 'mashed potatoes', servings: 4, ingredients: ['potato', 'butter', 'milk'], instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency' }, { title: 'pancakes', servings: 4, ingredients: ['flour', 'sugar', 'eggs', 'milk'], instructions: '1) Mix all ingredients together 2) Fry in a pan until golden brown 3) Top with sugar or other desired toppings' }]);
+        });
+    });
+
+    test('GET /match-recipes will return an empty array if the search query does not match any recipes', () => {
+        return request(app).get('/match-recipes?search=test').then(response => {
+            expect(response.body).toEqual([]);
+        });
+    });
+
+    test('GET /match-recipes WILL NOT return partial matches', () => {
+        return request(app).get('/match-recipes?search=potato,butter').then(response => {
+            expect(response.body).toEqual([]);
+        });
+    });
+
+    test('GET /match-recipes is case-insensitive', () => {
+        return request(app).get('/match-recipes?search=PoTaTo,BuTtEr,MiLk').then(response => {
+            expect(response.body).toEqual([{ title: 'mashed potatoes', servings: 4, ingredients: ['potato', 'butter', 'milk'], instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency' }]);
+        });
+    });
+
+    test('GET /match-recipes will still function correctly if the search query contains multiple instances of the same ingredient', () => {
+        return request(app).get('/match-recipes?search=potato,potato,butter,milk').then(response => {
+            expect(response.body).toEqual([{ title: 'mashed potatoes', servings: 4, ingredients: ['potato', 'butter', 'milk'], instructions: '1) Boil potatoes 2) Mash them with the butter and milk until desired consistency' }]);
+        });
+    });
+});
+
+// Test /remove-ingredient path
+describe('DELETE /remove-ingredient', () => {
+    test('DELETE /remove-ingredient returns status 200 if an ingredient is specified', () => {
+        return request(app).delete('/remove-ingredient/test').expect(200);
+    });
+
+    test('DELETE /remove-ingredient returns HTML if an ingredient is specified', () => {
+        return request(app).delete('/remove-ingredient/test').expect('Content-Type', /html/);
+    });
+
+    test('DELETE /remove-ingredient returns status 400 if an ingredient is not specified', () => {
+        return request(app).delete('/remove-ingredient').expect(400);
+    });
+
+    test('DELETE /remove-ingredient returns HTML if an ingredient is not specified', () => {
+        return request(app).delete('/remove-ingredient').expect('Content-Type', /html/);
+    });
+
+    test('DELETE /remove-ingredient correctly removes the specified ingredient', () => {
+        request(app).delete('/remove-ingredient/potato').then(() => {
+            return request(app).get('/get-ingredients').then(response => {
+                expect(response.body).toEqual([{ ingredient: 'butter' }, { ingredient: 'milk' }, { ingredient: 'flour' }, { ingredient: 'sugar' }, { ingredient: 'eggs' }, { ingredient: 'salt' }, { ingredient: 'pepper' }, { ingredient: 'oil' }, { ingredient: 'onion' }]);
+            });
+        });
+    });
+
+    test('DELETE /remove-ingredient will not remove anything if the ingredient does not exist', () => {
+        request(app).delete('/remove-ingredient/test').then(() => {
+            return request(app).get('/get-ingredients').then(response => {
+                expect(response.body).toEqual([{ ingredient: 'butter' }, { ingredient: 'milk' }, { ingredient: 'flour' }, { ingredient: 'sugar' }, { ingredient: 'eggs' }, { ingredient: 'salt' }, { ingredient: 'pepper' }, { ingredient: 'oil' }, { ingredient: 'onion' }]);
+            });
+        });
+    });
+});
