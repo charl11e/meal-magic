@@ -412,6 +412,10 @@ describe('POST /new-ingredient', () => {
         return request(app).post('/new-ingredient').expect('Content-Type', /html/);
     });
 
+    test('POST /new-ingredient returns a message if an ingredient is not specified', () => {
+        return request(app).post('/new-ingredient').expect('Ingredient cannot be empty');
+    });
+
     test('POST /new-ingredient correctly adds the specified ingredient', async () => {
         await request(app).post('/new-ingredient').send({ ingredient: 'test3' });
         return request(app).get('/get-ingredients').then(response => {
@@ -457,5 +461,59 @@ describe('POST /new-ingredient', () => {
         return request(app).get('/get-ingredients').then(response => {
             expect(response.body).toEqual([{ ingredient: 'butter' }, { ingredient: 'milk' }, { ingredient: 'flour' }, { ingredient: 'sugar' }, { ingredient: 'eggs' }, { ingredient: 'salt' }, { ingredient: 'pepper' }, { ingredient: 'oil' }, { ingredient: 'test1' }, { ingredient: 'test2' }, { ingredient: 'test3' }, { ingredient: 'test4' }, { ingredient: 'test5' }, { ingredient: 'test 6' }]);
         });
+    });
+});
+
+// Test /new-recipe path
+describe('POST /new-recipe', () => {
+    test('POST /new-recipe returns status 200 if all parameters are specified', () => {
+        return request(app).post('/new-recipe').send({ title: 'test', servings: 1, ingredients: ['test'], instructions: 'test' }).expect(200);
+    });
+
+    test('POST /new-recipe returns HTML if all parameters are specified', () => {
+        return request(app).post('/new-recipe').send({ title: 'test', servings: 1, ingredients: ['test'], instructions: 'test' }).expect('Content-Type', /html/);
+    });
+
+    test('POST /new-recipe returns status 400 if a parameter is not specified', async () => {
+        return await request(app).post('/new-recipe').send({ title: 'test', servings: 1, ingredients: ['test'] }).expect(400) &&
+        await request(app).post('/new-recipe').send({ title: 'test', servings: 1, instructions: 'test' }).expect(400) &&
+        await request(app).post('/new-recipe').send({ title: 'test', ingredients: ['test'], instructions: 'test' }).expect(400) &&
+        await request(app).post('/new-recipe').send({ servings: 1, ingredients: ['test'], instructions: 'test' }).expect(400);
+    });
+
+    test('POST /new-recipe returns a message if a parameter is not specified', () => {
+        return request(app).post('/new-recipe').send({ title: 'test', servings: 1, ingredients: ['test'] }).expect('All parameters must be filled in');
+    });
+
+    test('POST /new-recipe returns HTML if a parameter is not specified', () => {
+        return request(app).post('/new-recipe').send({ title: 'test', servings: 1, ingredients: ['test'] }).expect('Content-Type', /html/);
+    });
+
+    test('POST /new-recipe correctly adds the specified recipe', async () => {
+        await request(app).post('/new-recipe').send({ title: 'test2', servings: 1, ingredients: ['test'], instructions: 'test' });
+        return request(app).get('/search-recipes?search=test2').then(response => {
+            expect(response.body).toEqual([{ title: 'test2', servings: 1, ingredients: ['test'], instructions: 'test' }]);
+        });
+    });
+
+    test('POST /new-recipe can add the same recipe multiple times', async () => {
+        await request(app).post('/new-recipe').send({ title: 'test2', servings: 5, ingredients: ['test5'], instructions: 'test5' });
+        return request(app).get('/search-recipes?search=test2').then(response => {
+            expect(response.body).toEqual([{ title: 'test2', servings: 1, ingredients: ['test'], instructions: 'test' }, { title: 'test2', servings: 5, ingredients: ['test5'], instructions: 'test5' }]);
+        });
+    });
+
+    test('POST /new-recipe will ignore any extra parameters if they are specified', async () => {
+        await request(app).post('/new-recipe').send({ title: 'test3', servings: 1, ingredients: ['test'], instructions: 'test', test: 'test' });
+        return request(app).get('/search-recipes?search=test3').then(response => {
+            expect(response.body).toEqual([{ title: 'test3', servings: 1, ingredients: ['test'], instructions: 'test' }]);
+        });
+    });
+});
+
+// Initialise data after testing so test data is no longer present
+describe('Initialising data to remove test data', () => {
+    test('Initialising data', () => {
+        return request(app).delete('/initialise').expect(200);
     });
 });
