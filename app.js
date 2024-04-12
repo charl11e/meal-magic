@@ -67,9 +67,9 @@ function write (filename, data, res) {
             res.status(500).send('Error writing to file');
             return;
         }
-    if (res) {
-        res.send('Successfully updated!');
-    }
+        if (res) {
+            res.send('Successfully updated!');
+        }
     });
 }
 
@@ -82,6 +82,12 @@ app.post('/new-recipe', (req, res) => {
     // Check if ingredients parameter is an array (MDN Web Docs, 2023d)
     if (!Array.isArray(req.body.ingredients)) {
         res.status(400).send('Ingredients must be sent in an array');
+        return;
+    }
+
+    // Check if any of the parameters are empty (MDN Web Docs, 2023g)
+    if (!req.body.title || !req.body.servings || !req.body.instructions || req.body.ingredients.length === 0) {
+        res.status(400).send('All parameters must be filled in');
         return;
     }
     // Put all ingredients in lowercase

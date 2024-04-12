@@ -48,6 +48,8 @@ MDN Web Docs (2024a) Using CSS custom properties (variables). Available at: http
 
 MDN Web Docs (2024b) Set. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set (Accessed: 12th April 2024)
 
+MDN Web Docs (2023g) Logical OR (||). Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR (Accessed: 12th April 2024)
+
 StackAbuse (2023) How to return status codes in Express. Available at: https://stackabuse.com/bytes/how-to-return-status-codes-in-express/ (Accessed: 27th February 2024)
 
 StackOverflow (2008a) How to force DIV block to extend to bottom of a page even if it has no content. Available at: https://stackoverflow.com/questions/147528/how-do-i-force-a-div-block-to-extend-to-the-bottom-of-a-page-even-if-it-has-no-c (Accessed: 15th March 2024)
