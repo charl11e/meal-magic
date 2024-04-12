@@ -29,6 +29,7 @@ function goLight () {
     document.getElementById('sidebar').classList.add('sidebar-light');
     document.getElementById('sidebar').classList.remove('sidebar-dark');
     document.documentElement.style.setProperty('--selected-color', 'black');
+    document.body.style.backgroundColor = '#f2f3f4';
     document.cookie = 'theme=light';
 }
 
@@ -39,6 +40,7 @@ function goDark () {
     document.getElementById('sidebar').classList.remove('sidebar-light');
     document.getElementById('sidebar').classList.add('sidebar-dark');
     document.documentElement.style.setProperty('--selected-color', 'white');
+    document.body.style.backgroundColor = '';
     document.cookie = 'theme=dark';
 }
 
