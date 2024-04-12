@@ -78,63 +78,80 @@
                     <div class="modal-body">
 
                         <!--Add Ingredient Form-->
-                        <h3>Add Ingredient</h3>
-                        <form method="POST" action="/new-ingredient" id="add_ingredient">
-                            Ingredient: <input type="text" name="ingredient" required> <br>
-                            <button type="submit" class="btn btn-primary">Add</button>
-                        </form>
+                        <div class="container-fluid" id ="add-ingredient-form">
+                            <h3>Add Ingredient</h3>
+                            <form method="POST" action="/new-ingredient" id="add_ingredient">
+                                <input type="text" name="ingredient" placeholder="Ingredient" id="ingredient-add-text" required><br>
+                                <button type="submit" class="btn btn-primary">Add Ingredient</button>
+                            </form>
+                        </div>
                         <br>
 
                         <!--Add Recipe Form (W3Schools, 2023f) (Bootstrap Team, 2024f)-->
-                        <h3>Add Recipe</h3>
-                        <form method="POST" action="/new-recipe" id="add_recipe">
-                            Recipe: <input type="text" name="title" required> <br><br>
-                            
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="ingredient-list-button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Select Ingredients 
-                                </button>
-                                <div class="dropdown-menu" id="ingredient-list" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
+                        <div class="container-fluid" id="add-recipe-form">
+                            <h3>Add Recipe</h3>
+                            <form method="POST" action="/new-recipe" id="add_recipe">
+                                <input type="text" class="recipe-add" name="title" placeholder="Recipe" required> <br>
+                                <input type="text" class="recipe-add" name="servings" placeholder="Servings" required> <br>
+                                <textarea name="instructions" placeholder="Enter Recipe Instructions" class="recipe-add" id="recipe-instructions" required></textarea> <br>
+                                
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle recipe-add" type="button" id="ingredient-list-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select Ingredients 
+                                    </button>
+                                    <div class="dropdown-menu" id="ingredient-list" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                    </div>
                                 </div>
-                            </div> <br>
-        
-                            Servings: <input type="number" name="servings" required> <br><br>
-                            Instructions: <textarea name="instructions" required>Enter Recipe Instructions:</textarea> <br>
-                            <button type="submit" class="btn btn-primary">Add</button>
-                        </form>
 
+                                <button type="submit" class="btn btn-primary">Add Recipe</button>
+                            </form>
+                        </div>
                         <br>
+
                         <!--Switch Between Light and Dark Mode-->
-                        <h3>Visual Settings</h3>
-                        <button type="button" class="btn btn-primary" id="theme-toggle">Toggle Theme</button>
-                        <br><br>
+                        <div class="container-fluid" id="visual-settings">
+                            <p class="divider">__________________________________________</p>
+                            <h3>Visual Settings</h3>
+                            <button type="button" class="btn btn-primary" id="theme-toggle">Toggle Theme</button>
+                            <p class="divider">__________________________________________</p>
+                        </div>
+                        <br>
     
                         <!--Remove an ingredient/recipe-->
-                        <h3>Remove Data</h3>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="remove-recipe-button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Remove Recipe
-                            </button>
-                            <div class="dropdown-menu" id="remove-recipe-list" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
+                        <div class="container-fluid" id="remove-data">
+                            <h3>Remove Data</h3>
+                            <i>Use the dropdowns to select which recipe(s)/ingredient(s) you want to remove, then press remove</i>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="remove-recipe-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Remove Recipe
+                                </button>
+                                <div class="dropdown-menu" id="remove-recipe-list" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                </div>
                             </div>
-                        </div> <br>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="remove-ingredient-button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Remove Ingredient
-                            </button>
-                            <div class="dropdown-menu" id="remove-ingredient-list" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="remove-ingredient-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Remove Ingredient
+                                </button>
+                                <div class="dropdown-menu" id="remove-ingredient-list" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                </div>
                             </div>
-                        </div> <br>
-                        <button type="button" class="btn btn-danger" id="remove-button">Remove</button>
-                        <!--Initialise Data Button-->
-                        <br><br>
-                        <h3>Initialise Data</h3>
-                        <button type="button" class="btn btn-danger" id="initialise-button">Initalise all data</button>
-
+                            <button type="button" class="btn btn-danger" id="remove-button">Remove</button><br>
+                            <b class="warning-message">This cannot be reversed</b>
+                        </div>
                         <br>
+
+                        <!--Initialise Data Button-->
+                        <div class="container-fluid" id="initialise-data">
+                            <h3>Initialise Data</h3>
+                            <i>Will restore the data to it's original state upon first use</i>
+                            <button type="button" class="btn btn-danger" id="initialise-button">Initalise all data</button><br>
+                            <b class="warning-message">This cannot be reversed</b>
+                        </div>
+                        <br>
+    
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
