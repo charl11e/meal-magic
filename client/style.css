@@ -48,6 +48,14 @@
     border-right:3px solid white;
 }
 
+/* Change content to always scroll if past viewport height (StackOverflow, 2012a)*/
+#content {
+    position:absolute;
+    width:auto;
+    overflow:auto;
+    max-height:100%;
+}
+
 /* Sidebar for light mode (StackOverflow, 2012a) */
 .sidebar-light {
     overflow:auto;
@@ -156,4 +164,12 @@ h1 {
 #initialise-button {
     margin-top:10px;
     margin-bottom:10px;
+}
+
+/* Main Content on loading page */
+#big-logo {
+    text-align:center;
+    margin-top:10px;
+    margin-bottom:20px;
+    font-size:50px
 }

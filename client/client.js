@@ -26,6 +26,7 @@ if (document.cookie.includes('theme=light')) {
 function goLight () {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     document.getElementById('logo').setAttribute('src', '/assets/logo-dark.png');
+    document.getElementById('logo-main').setAttribute('src', '/assets/logo-dark.png');
     document.getElementById('sidebar').classList.add('sidebar-light');
     document.getElementById('sidebar').classList.remove('sidebar-dark');
     document.documentElement.style.setProperty('--selected-color', 'black');
@@ -37,6 +38,7 @@ function goLight () {
 function goDark () {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
+    document.getElementById('logo-main').setAttribute('src', '/assets/logo-light.png');
     document.getElementById('sidebar').classList.remove('sidebar-light');
     document.getElementById('sidebar').classList.add('sidebar-dark');
     document.documentElement.style.setProperty('--selected-color', 'white');
