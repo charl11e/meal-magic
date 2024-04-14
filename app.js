@@ -2,6 +2,11 @@
 
 // SET UP
 
+// Set up express and file system
+const express = require('express');
+const app = express();
+const fs = require('fs');
+
 // Load ingredients and recipes (W3Schools, 2023c)
 let ingredients, recipes;
 try {
@@ -11,11 +16,6 @@ try {
     console.error('Error loading ingredients and recipes, previous data will have been lost. If this error persists, you may need to intialise the data', err);
     initalise();
 };
-
-// Set up express and file system
-const express = require('express');
-const app = express();
-const fs = require('fs');
 
 // Load pages statically from client folder and use JSON
 app.use(express.static('client'));
@@ -64,7 +64,9 @@ function write (filename, data, res) {
     fs.writeFile(filename, JSON.stringify(data), (err) => {
         if (err) {
             console.error('Error writing to file', err);
-            res.status(500).send('Error writing to file');
+            if (res) {
+                res.status(500).send('Error writing to file');
+            }
             return;
         }
         if (res) {

@@ -69,9 +69,23 @@ function capitalise (string) {
     return words.join(' ');
 }
 
-// Add error message
+// Add error message (Bootstrap, 2024b)
 function displayError (err) {
-    document.getElementById('errormessage').innerHTML = `<div class="alert alert-danger error" role="alert">${err}</div>`;
+    document.getElementById('errormessage').innerHTML = `<div class="alert alert-danger error" role="alert">${err}. Please ensure the server is running/running with no errors.</div>`;
+    tryConnection();
+}
+
+// Function to try connection on server disconnect/error (Bootstrap, 2024b) - Disabled ESLint rules as the responses are not used
+async function tryConnection () {
+    try {
+        // eslint-disable-next-line no-unused-vars
+        const response1 = await fetch('/get-ingredients');
+        // eslint-disable-next-line no-unused-vars
+        const response2 = await fetch('/get-recipes');
+        document.getElementById('errormessage').innerHTML = '<div class="alert alert-success error" role="alert">Connection to server re-established</div>';
+     } catch (err) {
+        setTimeout(tryConnection, 2000);
+     }
 }
 
 // Change the boldness on tags if they are clicked
