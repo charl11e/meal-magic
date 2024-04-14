@@ -13,7 +13,7 @@ try {
     ingredients = require('./ingredients');
     recipes = require('./recipes');
 } catch (err) {
-    console.error('Error loading ingredients and recipes, previous data will have been lost. If this error persists, you may need to intialise the data', err);
+    console.error('Error loading ingredients and recipes, previous data will have been lost. If this error persists, you may need to intialise the data manually', err);
     initalise();
 };
 

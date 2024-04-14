@@ -1,6 +1,6 @@
 {
   "name": "summative2",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A website for my summative project based on recipes and ingredients",
   "main": "server.js",
   "scripts": {

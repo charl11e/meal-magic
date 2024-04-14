@@ -5,7 +5,6 @@
 // Alerts for all errors made with help from Bootstrap Team, 2024b
 
 
-
 // Switch between light and dark mode (StackOverflow, 2020a) (W3Schools, 2024b)
 
 // Check if a cookie exists for the theme
@@ -60,7 +59,7 @@ document.getElementById('theme-toggle').addEventListener('click', function () {
 
 // Miscellaneous Functions
 
-// Capitalise first letter of each word (FreeCodeCamp 2024)
+// Capitalise first letter of each word (FreeCodeCamp 2020)
 function capitalise (string) {
     const words = string.split(' ');
     for (let i = 0; i < words.length; i++) {
@@ -161,7 +160,7 @@ async function getRecipes () {
     }
 }
 
-// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f) (Bootstrap Team, 2024g))
+// Get list of all ingredients for sidebar (Also adds all ingredients for the dropdown when adding a new recipe/removing recipe - saves having to fetch several times (W3Schools, 2023f) (Bootstrap Team, 2024g) (Bootstrap Team, 2024f))
 getIngredients();
 async function getIngredients () {
     const sidebar = document.getElementById('ingredients');
@@ -249,7 +248,7 @@ const matchtag = document.getElementById('match-tag');
 matchtag.addEventListener('click', async function (event) {
     // Get a list of ingredients that are toggled on and send a request to the server to match the recipes
     try {
-        // Get all selected ingredients
+        // Get all selected ingredients (W3Schools, 2024a)
         const selectedIngredients = document.querySelectorAll('.ingredient-list');
         const toggled = [];
         for (const ingredient of selectedIngredients) {
@@ -348,8 +347,7 @@ document.getElementById('initialise-button').addEventListener('click', async fun
             displayError('Error occured while initialising the data');
             return;
         }
-        // eslint-disable-next-line no-undef
-        location.reload();
+        window.location.reload();
     } catch (error) {
         displayError(`Error occured while initialising the data: ${error}`);
     }
@@ -371,7 +369,7 @@ newIngredient.addEventListener('submit', async function (event) {
     if (response.ok) {
         window.location.reload();
     } else {
-        displayError('Error occured while adding the ingredient. Please ensure field has been filled out and ingredient does not already exist');
+        window.alert('Error occured while adding the ingredient. Please ensure field has been filled out and ingredient does not already exist');
     }
 });
 
@@ -400,7 +398,7 @@ newRecipe.addEventListener('submit', async function (event) {
     if (response.ok) {
         window.location.reload();
     } else {
-        displayError('Error occured while adding the recipe. Please ensure all fields have been filled out and ingredients have been selected');
+        window.alert('Error occured while adding the recipe. Please ensure all fields have been filled out and ingredients have been selected');
     }
 });
 
@@ -409,14 +407,14 @@ document.getElementById('remove-button').addEventListener('click', async functio
     const recipesSelected = document.querySelectorAll('.recipe-selector.active');
     const ingredientsSelected = document.querySelectorAll('.ingredient-selector.remove.active');
     if (recipesSelected.length === 0 && ingredientsSelected.length === 0) {
-        displayError('Please select a recipe or ingredient to remove');
+        window.alert('Please select a recipe or ingredient to remove');
     } else {
         // Iterate over all selected recipes
         for (const recipe of recipesSelected) {
             // Send a delete request to the server
             const response = await fetch('/remove-recipe/' + recipe.textContent, { method: 'DELETE' });
             if (!response.ok) {
-                displayError('Error occured while removing the recipe');
+                window.alert('Error occured while removing the recipe');
             }
         }
 
@@ -425,7 +423,7 @@ document.getElementById('remove-button').addEventListener('click', async functio
             // Send a delete request to the server
             const response = await fetch('/remove-ingredient/' + ingredient.textContent, { method: 'DELETE' });
             if (!response.ok) {
-                displayError('Error occured while removing the ingredient');
+                window.alert('Error occured while removing the ingredient');
             }
         }
 

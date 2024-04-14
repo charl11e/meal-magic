@@ -6,13 +6,15 @@ All references for code/images/other sources are listed below
 
 My two types of entity for this website are recipes and ingredients
 
-API Documentation:
+API Documentation: NEED TO PUBLISH AND ADD
 
 To install: ```npm install```
 
 To run: ```npm run```
 
 Then go to: ```http://127.0.0.1:8090```
+
+To test: ```npm test``` <b>WARNING: WILL RESET DATA</b>
 
 # Code References
 Bootstrap Team (2023a) Bootstrap Download. Available at: https://getbootstrap.com/docs/5.3/getting-started/download/ (Accessed: 25th February 2024)
