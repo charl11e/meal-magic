@@ -173,3 +173,63 @@ h1 {
     margin-bottom:20px;
     font-size:50px
 }
+
+.section-divider {
+    text-align:center;
+    margin-top:25px;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.section-divider-withunder {
+    text-align:center;
+    margin-top:25px;
+    font-weight:bold;
+    
+}
+
+.under-section {
+    text-align:center;
+    margin-bottom:25px;
+    font-style: italic;
+}
+
+p {
+    font-size:larger;
+}
+
+.use-guide-list {
+    font-size:larger;
+    text-align:center;
+}
+
+li {
+    font-size:larger;
+}
+
+/* Recipe Displays */
+.recipe-title {
+    font-weight:bold;
+}
+
+.recipe-instructions {
+    font-weight:bold;
+}
+
+.recipe-servings {
+    font-weight:bold;
+}
+
+.recipe-ingredients {
+    font-weight:bold;
+}
+
+.recipe-instruction-content {
+    margin-bottom: 40px;
+}
+
+/* Search Headers */
+.search-header {
+    font-weight:bold;
+    margin-bottom:20px;
+}

@@ -199,7 +199,7 @@ async function getRecipe (recipe) {
             for (const ingredient of recipes[i].ingredients) {
                 ingredients += '<li>' + capitalise(ingredient) + '</li>';
             }
-            details += '<h3>' + capitalise(recipes[i].title) + '</h3><p>Servings: ' + recipes[i].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[i].instructions + '</p>';
+            details += '<h3 class="recipe-title">' + capitalise(recipes[i].title) + '</h3><p class="recipe-servings">Servings: ' + recipes[i].servings + '</p><p class="recipe-ingredients">Ingredients:</p><ul>' + ingredients + '</ul><p class="recipe-instructions">Instructions:</p><p class="recipe-instruction-content">' + recipes[i].instructions + '</p>';
         }
         changeContent(details);
     } catch (error) {
@@ -222,7 +222,7 @@ recipetag.addEventListener('click', async function (event) {
             for (const ingredient of recipes[recipe].ingredients) {
                 ingredients += '<li>' + capitalise(ingredient) + '</li>';
             }
-            content += '<h3>' + capitalise(recipes[recipe].title) + '</h3><p>Servings: ' + recipes[recipe].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[recipe].instructions + '</p>';
+            content += '<h3 class="recipe-title">' + capitalise(recipes[recipe].title) + '</h3><p class="recipe-servings">Servings: ' + recipes[recipe].servings + '</p><p class="recipe-ingredients">Ingredients:</p><ul>' + ingredients + '</ul><p class="recipe-instructions">Instructions:</p><p class="recipe-instruction-content">' + recipes[recipe].instructions + '</p>';
         }
         changeContent(content);
     } catch (error) {
@@ -261,7 +261,7 @@ matchtag.addEventListener('click', async function (event) {
             for (const ingredient of recipes[recipe].ingredients) {
                 ingredients += '<li>' + capitalise(ingredient) + '</li>';
             }
-            content += '<h3>' + capitalise(recipes[recipe].title) + '</h3><p>Servings: ' + recipes[recipe].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[recipe].instructions + '</p>';
+            content += '<h3 class="recipe-title">' + capitalise(recipes[recipe].title) + '</h3><p class="recipe-servings">Servings: ' + recipes[recipe].servings + '</p><p class="recipe-ingredients">Ingredients:</p><ul>' + ingredients + '</ul><p class="recipe-instructions">Instructions:</p><p class="recipe-instruction-content">' + recipes[recipe].instructions + '</p>';
         }
         changeContent(content);
     } catch (error) {
@@ -295,7 +295,7 @@ search.addEventListener('submit', async function (event) {
             return;
         }
 
-        let details = '<h1>Recipes</h1>';
+        let details = '<h1 class="search-header">Recipes</h1>';
         if (recipes.length === 0) {
             details += '<h3>No recipes found</h3>';
         }
@@ -305,10 +305,10 @@ search.addEventListener('submit', async function (event) {
             for (const ingredient of recipes[i].ingredients) {
                 ingredients += '<li>' + capitalise(ingredient) + '</li>';
             }
-            details += '<h3>' + capitalise(recipes[i].title) + '</h3><p>Servings: ' + recipes[i].servings + '</p><p>Ingredients:</p><ul>' + ingredients + '</ul><p>Instructions:</p><p>' + recipes[i].instructions + '</p>';
+            details += '<h3 class="recipe-title">' + capitalise(recipes[i].title) + '</h3><p class="recipe-servings">Servings: ' + recipes[i].servings + '</p><p class="recipe-ingredients">Ingredients:</p><ul>' + ingredients + '</ul><p class="recipe-instructions">Instructions:</p><p class="recipe-instruction-content">' + recipes[i].instructions + '</p>';
         }
 
-        details += '<h1>Ingredients</h1>';
+        details += '<h1 class="search-header">Ingredients</h1>';
         if (ingredients.length === 0) {
             details += '<h3>No ingredients found</h3>';
         }
