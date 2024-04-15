@@ -25,7 +25,7 @@
 
     <body style="background-color:#f2f3f4">
         <!--Div used to store error message if applicable (Bootstrap Team, 2024b)-->
-        <div class="container-fluid error" id="errormessage" style="padding:10px"></div>
+        <div class="container-fluid error" id="errormessage"></div>
 
          <!--Sidebar / Navbar (W3Schools, 2023e) (Bootstrap Team, 2024a) (Bootstrap Team, 2024c)-->
         <div class="container-fluid" id="sidebar">
@@ -35,14 +35,16 @@
     
                     <!--Brand-->
                     <a class="navbar-brand" href="/index.html">
-                        <img src="/assets/logo-light.png" height="60" id="logo" class="d-inline-block align-text dark" alt="Logo">
-                        Meal Magic
+                        <div id="brand-background-light">
+                            <img src="/assets/logo-light.png" height="60" id="logo" class="d-inline-block align-text dark" alt="Logo">
+                            Meal Magic
+                        </div>
                     </a>
 
                     <!--Search Bar-->
                     <form class="form-inline my-2 my-lg-0" role="search" id="searchbox">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search">
-                        <button class="btn btn-default" id="submit"><img src=/assets/search.png height="20" alt="Search"></button>
+                        <button class="btn btn-default" id="submit"><img src=/assets/search-light.png height="20" alt="Search" id="search-icon"></button>
                     </form>
                     
                     <!--Navigation Links-->

@@ -103,10 +103,16 @@ W3Schools (Refsnes Data) (2024c) JavaScript Array toString(). Available at: http
 
 W3Schools (Refsnes Data) (2024d) CSS Change Variables With JavaScript. Available at: https://www.w3schools.com/css/css3_variables_javascript.asp (Accessed: 10th April 2024)
 
+W3Schools (Refsnes Data) (2024e) CSS rounded corners. Available at: https://www.w3schools.com/css/css3_borders.asp (Accessed: 15th April 2024)
+
+W3Schools (Refsnes Data) (2024f) RGB Value. Available at: https://www.w3schools.com/css/css_colors_rgb.asp (Accessed: 15th April 2024)
+
+W3Schools (Refsnes Data) (2024g) CSS Box Shadow. Available at: https://www.w3schools.com/css/css3_shadows_box.asp (Accessed: 15th April 2024)
+
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT
 
-search.png: icons-icons (2023) (Adapted from) Search Icon. Available at: https://icon-icons.com/icon/search/153438 (Accessed: 20th March 2024)
+search-light.png, search-dark.png: icons-icons (2023) (Adapted from) Search Icon. Available at: https://icon-icons.com/icon/search/153438 (Accessed: 20th March 2024)
 
 # Other References
 Disabling rules for ESLint from ESLint (2024) Configure Rules. Available at: https://eslint.org/docs/latest/use/configure/rules (Accessed: 30th March 2024)

@@ -24,8 +24,10 @@ if (document.cookie.includes('theme=light')) {
 // Functions for light and dark mode (StackOverflow, 2016a)
 function goLight () {
     document.documentElement.setAttribute('data-bs-theme', 'light');
-    document.getElementById('logo').setAttribute('src', '/assets/logo-dark.png');
+    document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
     document.getElementById('logo-main').setAttribute('src', '/assets/logo-dark.png');
+    document.getElementById('search-icon').setAttribute('src', '/assets/search-dark.png');
+    document.getElementById('brand-background-light').classList.add('brand-background');
     document.getElementById('sidebar').classList.add('sidebar-light');
     document.getElementById('sidebar').classList.remove('sidebar-dark');
     document.documentElement.style.setProperty('--selected-color', 'black');
@@ -38,6 +40,8 @@ function goDark () {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
     document.getElementById('logo-main').setAttribute('src', '/assets/logo-light.png');
+    document.getElementById('search-icon').setAttribute('src', '/assets/search-light.png');
+    document.getElementById('brand-background-light').classList.remove('brand-background');
     document.getElementById('sidebar').classList.remove('sidebar-light');
     document.getElementById('sidebar').classList.add('sidebar-dark');
     document.documentElement.style.setProperty('--selected-color', 'white');
@@ -71,6 +75,7 @@ function capitalise (string) {
 // Add error message (Bootstrap, 2024b)
 function displayError (err) {
     document.getElementById('errormessage').innerHTML = `<div class="alert alert-danger error" role="alert">${err}. Please ensure the server is running/running with no errors.</div>`;
+    document.getElementById('errormessage').setAttribute('style', 'padding: 10px;');
     tryConnection();
 }
 
