@@ -6,7 +6,7 @@ All references for code/images/other sources are listed below
 
 My two types of entity for this website are recipes and ingredients
 
-API Documentation: NEED TO PUBLISH AND ADD
+API Documentation: https://documenter.getpostman.com/view/33001241/2sA3Bj7tUV
 
 To install: ```npm install```
 
