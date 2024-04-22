@@ -25,7 +25,6 @@ if (document.cookie.includes('theme=light')) {
 function goLight () {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
-    document.getElementById('logo-main').setAttribute('src', '/assets/logo-dark.png');
     document.getElementById('search-icon').setAttribute('src', '/assets/search-dark.png');
     document.getElementById('brand-background-light').classList.add('brand-background');
     document.getElementById('sidebar').classList.add('sidebar-light');
@@ -33,13 +32,16 @@ function goLight () {
     document.documentElement.style.setProperty('--selected-color', 'black');
     document.body.style.backgroundColor = '#f2f3f4';
     document.cookie = 'theme=light';
+    try {
+    document.getElementById('logo-main').setAttribute('src', '/assets/logo-dark.png');
+    } catch {
+    }
 }
 
 
 function goDark () {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     document.getElementById('logo').setAttribute('src', '/assets/logo-light.png');
-    document.getElementById('logo-main').setAttribute('src', '/assets/logo-light.png');
     document.getElementById('search-icon').setAttribute('src', '/assets/search-light.png');
     document.getElementById('brand-background-light').classList.remove('brand-background');
     document.getElementById('sidebar').classList.remove('sidebar-light');
@@ -47,6 +49,11 @@ function goDark () {
     document.documentElement.style.setProperty('--selected-color', 'white');
     document.body.style.backgroundColor = '';
     document.cookie = 'theme=dark';
+    // Just in case the website is not on the home page
+    try {
+    document.getElementById('logo-main').setAttribute('src', '/assets/logo-light.png');
+    } catch {
+    }
 }
 
 // Switch between light and dark mode

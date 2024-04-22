@@ -8,9 +8,11 @@ My two types of entity for this website are recipes and ingredients
 
 API Documentation: https://documenter.getpostman.com/view/33001241/2sA3Bj7tUV
 
+(An offline version of the documentation is also available to view under <i>documentation.json</i>. However, it is recommended to use the web version where possible)
+
 To install: ```npm install```
 
-To run: ```npm run```
+To run: ```npm start```
 
 Then go to: ```http://127.0.0.1:8090```
 
@@ -108,6 +110,11 @@ W3Schools (Refsnes Data) (2024e) CSS rounded corners. Available at: https://www.
 W3Schools (Refsnes Data) (2024f) RGB Value. Available at: https://www.w3schools.com/css/css_colors_rgb.asp (Accessed: 15th April 2024)
 
 W3Schools (Refsnes Data) (2024g) CSS Box Shadow. Available at: https://www.w3schools.com/css/css3_shadows_box.asp (Accessed: 15th April 2024)
+
+# Documentation References
+Documentation produced with the help of Postman. Available at: https://learning.postman.com/docs/publishing-your-api/documenting-your-api/ (Accessed: 7th April 2024)
+
+Exporting documentation to JSON file done with help of StackOverflow. Available at: https://stackoverflow.com/questions/57006723/postman-how-to-export-download-api-documentation-from-postman (Accessed: 22nd April 2024)
 
 # Image References
 favicon, logo-dark, logo-light - Modified from image generated with the help of ChatGPT

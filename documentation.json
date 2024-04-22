@@ -1,0 +1,1783 @@
+{
+	"info": {
+		"_postman_id": "b4feff83-d186-4b67-afef-d0085183e459",
+		"name": "Meal Magic",
+		"description": "API Documentation for 'Meal Magic'\n\nWhen starting the API, a check is made to ensure the data can be loaded. If an error occurs upon startup (such as a missing JSON file/a JSON file with invalid formatting), the data is automatically intialised. If the API is used as intended, this should never happen, however is present as a last resort.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33001241"
+	},
+	"item": [
+		{
+			"name": "Get Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/get-ingredients",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"get-ingredients"
+					]
+				},
+				"description": "Returns a full list of all ingredients currently stored in JSON format.\n\nIf there are no ingredients, it will return an empty list"
+			},
+			"response": [
+				{
+					"name": "Usage",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/get-ingredients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"get-ingredients"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-eukc+c26nkWB91CJQZ7Lc6gCZVs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 21:59:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ingredient\": \"potato\"\n    },\n    {\n        \"ingredient\": \"butter\"\n    },\n    {\n        \"ingredient\": \"milk\"\n    }\n]"
+				},
+				{
+					"name": "Usage - No Ingredients",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/get-ingredients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"get-ingredients"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 22:01:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Get Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/get-recipes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"get-recipes"
+					]
+				},
+				"description": "Returns a full list of all recipes currently stored in JSON format.\n\nIf there are no recipes, it will return an empty list"
+			},
+			"response": [
+				{
+					"name": "Usage",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/get-recipes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"get-recipes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "325"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"145-Aal8dMrV1c8pM/5SjxHd4RcnYzY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 22:04:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"mashed potatoes\",\n        \"servings\": 4,\n        \"ingredients\": [\n            \"potato\",\n            \"butter\",\n            \"milk\"\n        ],\n        \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n    },\n    {\n        \"title\": \"potato soup\",\n        \"servings\": \"4\",\n        \"ingredients\": [\n            \"potato\",\n            \"butter\"\n        ],\n        \"instructions\": \"1) Add Potato\\n2) Add milk (if you want creamy taste)\"\n    }\n]"
+				},
+				{
+					"name": "Usage - No Recipes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/get-recipes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"get-recipes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 22:04:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Search Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/search-ingredients?search=Value",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"search-ingredients"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Value",
+							"description": "The search parameter"
+						}
+					]
+				},
+				"description": "Searches through the list of ingredients currently stored and returns any matching ingredients in JSON format.\n\nIf there are no matching ingredients, it will return an empty list\n\nThe search function will match ingredients based on whether or not the search parameter is present in some part of the ingredient\n\ne.g. 'pot' will match potatoes but 'carrr' will not match carrots\n\nIf no search parameter is provided, a bad request is returned"
+			},
+			"response": [
+				{
+					"name": "Usage - Successful Match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-ingredients?search=potato",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-ingredients"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "potato",
+									"description": "The search parameter"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-aVIDkyPHc423WFM38qNSXTR68pQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 22:15:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ingredient\": \"potato\"\n    }\n]"
+				},
+				{
+					"name": "Usage - Unsuccessful Match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-ingredients?search=pott",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-ingredients"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "pott",
+									"description": "The search parameter"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 22:16:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"name": "No Search Parameter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-ingredients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-ingredients"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "pott",
+									"description": "The search parameter",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16-cr6dxfwscgnOHHIx2vDbdfQU+to\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 22:16:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Search cannot be empty"
+				}
+			]
+		},
+		{
+			"name": "Search Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/search-recipes?search=Value",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"search-recipes"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Value",
+							"description": "The search parameter"
+						}
+					]
+				},
+				"description": "Searches through the list of recipes currently stored and returns any matching recipes in JSON format.\n\nWill only search based on title of recipe/number of servings for recipe.\n\nIf there are no matching recipes, it will return an empty list\n\nThe search function will match recipes based on whether or not the search parameter is present in some part of the recipe title/servings\n\ne.g. 'mash' will match 'mashed potatoes' but 'mashh' will not match 'mashed potatoes'\n\nIf no search parameter is provided, a bad request is returned"
+			},
+			"response": [
+				{
+					"name": "Usage - Successful Match (title)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-recipes?search=mash",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "mash",
+									"description": "The search parameter"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-NEClR9rqNRcoRmE8q2TC5tPfGvY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 13:54:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"mashed potatoes\",\n        \"servings\": 4,\n        \"ingredients\": [\n            \"potato\",\n            \"butter\",\n            \"milk\"\n        ],\n        \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n    }\n]"
+				},
+				{
+					"name": "Usage - Unsuccessful Match (title)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-recipes?search=carrot",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "carrot",
+									"description": "The search parameter"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 13:54:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"name": "Usage - Successful Match (Servings)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-recipes?search=4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "4",
+									"description": "The search parameter"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "389"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"185-mTS+2nhagwP8L1ml72jl3aHliZc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 20:46:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"mashed potatoes\",\n        \"servings\": 4,\n        \"ingredients\": [\n            \"potato\",\n            \"butter\",\n            \"milk\"\n        ],\n        \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n    },\n    {\n        \"title\": \"pancakes\",\n        \"servings\": 4,\n        \"ingredients\": [\n            \"flour\",\n            \"sugar\",\n            \"eggs\",\n            \"milk\"\n        ],\n        \"instructions\": \"1) Mix all ingredients together 2) Fry in a pan until golden brown 3) Top with sugar or other desired toppings\"\n    }\n]"
+				},
+				{
+					"name": "Usage - Unsuccessful Match (Servings)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-recipes?search=9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "9",
+									"description": "The search parameter"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 20:46:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"name": "No Search Paramater",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/search-recipes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"search-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "mash",
+									"description": "The search parameter",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16-cr6dxfwscgnOHHIx2vDbdfQU+to\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 13:55:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Search cannot be empty"
+				}
+			]
+		},
+		{
+			"name": "Match Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/match-recipes?search=Value",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"match-recipes"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Value",
+							"description": "List of ingredients, comma separated"
+						}
+					]
+				},
+				"description": "Searches through the list of recipes currently stored and returns any recipes that can be made using the ingredients in the search parameter in JSON format.\n\nIf there are no matching recipes, it will return an empty list.\n\nThe list of ingredients must be comma separated, and for a recipe to be matched it must not necessarily contain ALL the ingredients, but as a minimum every ingredient in the recipe must be in the list of ingredients\n\ne.g. If mashed potatoes contains butter, milk and potatoes:\n\n- potatoes, butter WILL NOT match it\n    \n- potatoes, butter, milk WILL match it\n    \n- potatoes, butter, milk, eggs, WILL also match it"
+			},
+			"response": [
+				{
+					"name": "Usage - Successful Match 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/match-recipes?search=potato,butter,milk",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"match-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "potato,butter,milk",
+									"description": "List of ingredients, comma separated"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-NEClR9rqNRcoRmE8q2TC5tPfGvY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 14:40:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"mashed potatoes\",\n        \"servings\": 4,\n        \"ingredients\": [\n            \"potato\",\n            \"butter\",\n            \"milk\"\n        ],\n        \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n    }\n]"
+				},
+				{
+					"name": "Usage - Successful Match 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/match-recipes?search=potato,butter,milk,eggs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"match-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "potato,butter,milk,eggs",
+									"description": "List of ingredients, comma separated"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-NEClR9rqNRcoRmE8q2TC5tPfGvY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 14:40:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"mashed potatoes\",\n        \"servings\": 4,\n        \"ingredients\": [\n            \"potato\",\n            \"butter\",\n            \"milk\"\n        ],\n        \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n    }\n]"
+				},
+				{
+					"name": "Usage - Unsuccessful Match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/match-recipes?search=potato",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"match-recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "potato",
+									"description": "List of ingredients, comma separated"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 11 Apr 2024 14:41:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "New Recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"title\",\n    \"servings\": 0,\n    \"ingredients\": [\n        \"ingredient1\",\n        \"ingredient2\",\n        \"ingredient3\"\n        ],\n    \"instructions\": \"1) Step 1 2) Step 2 3) Step 3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8090/new-recipe",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"new-recipe"
+					]
+				},
+				"description": "Adds a new recipe to the data. Must be sent as a JSON body with the following parameters\n\n#### **JSON body parameters**\n\n| Name | Type | **Description** |\n| --- | --- | --- |\n| title | string | Title of the recipe |\n| servings | number | Number of servings for recipe |\n| ingredients | array | Array of ingredients for recipe |\n| instructions | string | Instructions for recipe |"
+			},
+			"response": [
+				{
+					"name": "Example 1 - Successful",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Mashed Potatoes\",\n    \"servings\": 4,\n    \"ingredients\": [\n        \"Potato\",\n        \"Butter\",\n        \"Milk\"\n        ],\n    \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8090/new-recipe",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"new-recipe"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-DmpGMHufJICf+f9jYhOHSKuGBPc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 19:58:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully updated!"
+				},
+				{
+					"name": "Example 2 - Unsuccessful, ingredients not in array",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Mashed Potatoes\",\n    \"servings\": 4,\n    \"ingredients\": \"potato, butter, milk\",\n    \"instructions\": \"1) Boil potatoes 2) Mash them with the butter and milk until desired consistency\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8090/new-recipe",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"new-recipe"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24-iQvThPVNP0bU1eX0MEriPDIPYxE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 20:00:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Ingredients must be sent in an array"
+				}
+			]
+		},
+		{
+			"name": "New Ingredient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ingredient\": \"ingredient\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8090/new-ingredient",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"new-ingredient"
+					]
+				},
+				"description": "Adds a new ingredient to the data. Must be sent as a JSON body with the following parameters\n\n#### JSON Body Parameters\n\n| Name | Type | **Description** |\n| --- | --- | --- |\n| ingredient | string | Name of the ingredient |\n\nIf the ingredient already exists, a bad request will be returned"
+			},
+			"response": [
+				{
+					"name": "Example 1 - Successful",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ingredient\": \"potato\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8090/new-ingredient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"new-ingredient"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-DmpGMHufJICf+f9jYhOHSKuGBPc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 20:15:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully updated!"
+				},
+				{
+					"name": "Example 2 - Ingredient already exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ingredient\": \"potato\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8090/new-ingredient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"new-ingredient"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-kJvKWJ+NWZ5w1e57sQA3nn1rK58\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 20:14:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Ingredient already exists"
+				}
+			]
+		},
+		{
+			"name": "Remove Ingredient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/remove-ingredient/:ingredient",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"remove-ingredient",
+						":ingredient"
+					],
+					"variable": [
+						{
+							"key": "ingredient",
+							"value": "Ingredient",
+							"description": "The ingredient that should be removed (non case-sensitive)"
+						}
+					]
+				},
+				"description": "Removes a specific ingredient from the data.\n\nHas no check if the ingredient is actually in the data, and will always return that the data has been successfully updated"
+			},
+			"response": [
+				{
+					"name": "Example 1",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/remove-ingredient/:ingredient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"remove-ingredient",
+								":ingredient"
+							],
+							"variable": [
+								{
+									"key": "ingredient",
+									"value": "Potato",
+									"description": "Removes 'potato' from the ingredients"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-DmpGMHufJICf+f9jYhOHSKuGBPc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 18:39:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully updated!"
+				},
+				{
+					"name": "Example 2",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/remove-ingredient/:ingredient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"remove-ingredient",
+								":ingredient"
+							],
+							"variable": [
+								{
+									"key": "ingredient",
+									"value": "carrot",
+									"description": "Removes 'carrot' from the list of ingredients"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-DmpGMHufJICf+f9jYhOHSKuGBPc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 18:39:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully updated!"
+				}
+			]
+		},
+		{
+			"name": "Remove Recipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/remove-recipe/:recipe",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"remove-recipe",
+						":recipe"
+					],
+					"variable": [
+						{
+							"key": "recipe",
+							"value": "Recipe",
+							"description": "The recipe(s) that should be removed (non case-sensitive)"
+						}
+					]
+				},
+				"description": "Removes recipe(s) from the data.\n\nHas no check if the recipe(s) are/is actually in the data, and will always return that the data has been successfully updated.\n\nIf there are several recipes of the same title, this will remove ALL the recipes of the same title"
+			},
+			"response": [
+				{
+					"name": "Example 1",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/remove-recipe/mashed potatoes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"remove-recipe",
+								"mashed potatoes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-DmpGMHufJICf+f9jYhOHSKuGBPc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 18:57:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully updated!"
+				},
+				{
+					"name": "Example 2",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/remove-recipe/carrot soup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"remove-recipe",
+								"carrot soup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-DmpGMHufJICf+f9jYhOHSKuGBPc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 18:57:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully updated!"
+				}
+			]
+		},
+		{
+			"name": "Initialise",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8090/initialise",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8090",
+					"path": [
+						"initialise"
+					]
+				},
+				"description": "Will reset the data to the default recipes/ingredients provided on first use.\n\nRequires no confirmation, is permanent and irreversible - USE WITH CAUTION"
+			},
+			"response": [
+				{
+					"name": "Usage",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8090/initialise",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"initialise"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-AwKfmkvwSrIjJI0CbikFP6hoxQM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Apr 2024 18:29:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Data has been initialised"
+				}
+			]
+		}
+	]
+}
