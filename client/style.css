@@ -8,14 +8,13 @@
     font-weight:bold;
 }
 
-/* Navbar (StackOverflow, 2011a) */
+/* Navbar */
 .navbar-brand {
     font-size: 25px;
     font-weight:bold;
 }
 
-/* Background for navbar-brand (W3Schools, 2024e, 2024d) */
-
+/* Background for navbar-brand (W3Schools, 2024e, 2024f) */
 .brand-background {
     border-radius:10px;
     width:205px;
@@ -28,6 +27,7 @@
     font-size:25px;
 }
 
+/* (StackOverflow, 2011a) */
 .nav-link {
     cursor: pointer;
     font-size:30px;

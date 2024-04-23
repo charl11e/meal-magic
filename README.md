@@ -2,7 +2,7 @@
 # By Charlie Livesey-Shorrock gdpp46
 
 # Notes
-All references for code/images/other sources are listed below
+All references for external code/images/other sources are listed below
 
 My two types of entity for this website are recipes and ingredients
 

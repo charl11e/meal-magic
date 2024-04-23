@@ -1,0 +1,390 @@
+commit 0acf7b178fc3d6ffd20381e0d5c036a539f55e43
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Apr 23 09:57:08 2024 +0100
+
+    Removed files unncessary for submission
+
+commit 12bc3d90d4def8be83bfbfc4ad56d4db454cfc55
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Apr 23 09:52:56 2024 +0100
+
+    Final Changes
+
+commit b5088bdcb35ac5d227ef34849d4eb59d9515cd48
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Mon Apr 22 20:26:21 2024 +0100
+
+    Final changes
+
+commit 0595161e31da07c664ad46f7ae25c15c07db4aad
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Apr 21 19:33:05 2024 +0100
+
+    Final commit before checking everything
+
+commit 2b80fb1e9276302e6133386c91aa597ac8961211
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Mon Apr 15 18:21:10 2024 +0100
+
+    Made styling changes
+
+commit 754cff50ec88a1519da2306a077782c2081e156c
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Apr 14 23:51:39 2024 +0100
+
+    Verified that all code has been cited
+
+commit 9395f390696b49f15b6de785764956fb62d27106
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Apr 14 22:53:07 2024 +0100
+
+    Improved error handling on server disconnect and handling if error occurs while loading JSON files
+
+commit ae6d820478bc5663ac47248fd005b638d71afd2d
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Apr 14 22:10:54 2024 +0100
+
+    Ensured HTML was compliant
+
+commit 5d6dd846f4475cc402893eaff8ad64ddaa913d45
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Apr 14 20:05:29 2024 +0100
+
+    Updated readme
+
+commit 0cb613d10c33bb3c58cc05c5b1dfa06dc29f91ca
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Apr 14 19:56:35 2024 +0100
+
+    Added more styling
+
+commit ed8a3b00babbd9a3beba192f02b8b8468caa9e7a
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Apr 13 21:54:33 2024 +0100
+
+    Added home page and made main content always scroll
+
+commit 8401fd2d669937414e7a4ca2f2d7d19e0ccecb49
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Apr 12 22:47:48 2024 +0100
+
+    Made light mode look a little nicer
+
+commit 4131bf606d1874855534fef3a4a66ac2263b649d
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Apr 12 22:35:00 2024 +0100
+
+    Styled modify modal
+
+commit b1fa17e1b140220a0383f5633791c16eda039b8c
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Apr 12 21:42:19 2024 +0100
+
+    Finished tests
+
+commit eee9dc73ecd315935244b8a662da6e80ca4b407d
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Apr 12 18:18:59 2024 +0100
+
+    Tests for /new-ingredient
+
+commit d00a73c08bf36d73a0b012ac978738f5bda70a97
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Apr 12 14:00:13 2024 +0100
+
+    Added tests for /remove-ingredient
+
+commit 03b9ba58da32919f6d7905db974c1ff495c52423
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Apr 11 22:16:14 2024 +0100
+
+    Added tests for /search-ingredients
+
+commit 4909ee7fb4f3aa8c45400fc12e2acd21ee3773b2
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Apr 11 21:53:30 2024 +0100
+
+    Added tests for /search-ingredients
+
+commit 75d88b63b4fe6adefcd2975d9c231832319f8e7f
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Apr 11 21:25:05 2024 +0100
+
+    Started adding jest tests
+
+commit 1f93d9ac75861b1bbde1712cde4c1f3ad0121bc8
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Apr 11 17:08:41 2024 +0100
+
+    Added first test and modified eslintrc file for Jest
+
+commit bdd4deabdfcb939c07833ce3c6729a517c91abeb
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Apr 11 16:34:54 2024 +0100
+
+    Installed supertest and started adding jest tests
+
+commit 165d14d6624145596ae4ce47edb9c2bb452c369b
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Apr 10 23:38:32 2024 +0100
+
+    Light mode now properly formatted
+
+commit 979862c0e6c40fad6aa39914250f4ecbc183b5cf
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Apr 10 22:04:12 2024 +0100
+
+    Started working on a better light mode
+
+commit 7e0cc11e5c32fa29ac46486b3e1d12c33223e9f9
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Mon Apr 1 19:20:45 2024 +0100
+
+    Added match recipes to client side
+
+commit b264085c7c71c1971e990fe243ea43dffd59bc3a
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Mon Apr 1 01:09:58 2024 +0100
+
+    selected function now works
+
+commit 3b455ce1955a321c617cbd7a35d6c9f52103735d
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Mon Apr 1 01:04:57 2024 +0100
+
+    Reorganised order of code in client.js
+
+commit b111aa84fa76dadec6e2baa66cce849868dec2e6
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Mar 31 19:12:21 2024 +0100
+
+    Added toggles to each ingredient in sidebar
+
+commit 29738989113588748e07beebcc1d25ebb735abd0
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Mar 30 16:56:52 2024 +0000
+
+    Added function in client to remove recipe/ingredient
+
+commit 94b0e5ff74e4679067915ebbe12103c3485d5aa4
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Mar 30 16:07:38 2024 +0000
+
+    Added toggle for light/dark theme
+
+commit 4faf08db4071ec88300516b4d19a75fd1ee8843d
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 28 01:45:38 2024 +0000
+
+    Started work on light/dark mode toggler
+
+commit f5b67236754e7bd2377c525d95a4bce1e09cf316
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 28 01:33:01 2024 +0000
+
+    Adding new recipe works
+
+commit 3a3c5eb5d7c20d0c2a002ec48a9538583e996eff
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Mar 27 14:49:02 2024 +0000
+
+    Dropdown for selecting ingredients for new recipe now works
+
+commit c1c8e01465eadbe0f77be45687fb0c2811cca49e
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Mar 27 01:08:27 2024 +0000
+
+    Added ingredient form
+
+commit b5d39144e6c5397633a482032f0d84753db65f23
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Mar 26 14:14:19 2024 +0000
+
+    Added initialise button
+
+commit 516fa33937387f3cf5fef123e4a2f9beb176a5d1
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Mar 26 14:02:14 2024 +0000
+
+    Started work on modify tab
+
+commit f730f4608fbf548ae295b4eb31f2c36c10ff2073
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Mar 23 23:21:56 2024 +0000
+
+    Added ingredients to sidebar
+
+commit 2abeb3880cd3f03b8e26c5e6c11cd50f21867072
+Merge: f641264 082f92f
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Mar 23 21:32:15 2024 +0000
+
+    Merge branch 'main' of https://github.com/charl11e/summative2
+
+commit f64126483e84eb84853f181bace263ed1c4f2913
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Mar 23 21:27:25 2024 +0000
+
+    Can now get all recipes
+
+commit 01e25bb50fcfa92e6b557675023770a084432a16
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Mar 23 21:14:15 2024 +0000
+
+    Cleaned up client code
+
+commit 082f92f1943590d7b0f5cff04e5376c13fe42105
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Mar 22 12:16:23 2024 +0000
+
+    Search bar works
+
+commit 94d116545ded808d204cd6d15c40d7355d3d18fa
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Mar 22 02:02:47 2024 +0000
+
+    Started work on search bar
+
+commit 11a91470b86256b1c53c8ee66e1e97ab63046e55
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 21 02:11:49 2024 +0000
+
+    Started search bar
+
+commit dbc9e9ca9443f972afff8074e8845680375ef09c
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Fri Mar 15 00:36:18 2024 +0000
+
+    Improved sidebar
+
+commit c40f46c2cbc48c22c94b85f1df5139cfc58170b2
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 14 23:38:54 2024 +0000
+
+    Added support if multiple website of the same title are added
+
+commit 3d14a9733b5984b816a489692e84d306f964dcfd
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 14 23:24:59 2024 +0000
+
+    Added Recipe sidebar
+
+commit 1a3beca8f65675daf6de9f3b1f571c39a1ed6dd7
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 14 18:24:40 2024 +0000
+
+    Added list of Recipes to navbar
+
+commit 152eb68757040e5dc1560f50759421aba39657b6
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 14 17:10:36 2024 +0000
+
+    Added navbar
+
+commit 25851acf0685389e8ead3277839cb632d72668ed
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Mar 14 11:46:48 2024 +0000
+
+    Added remove-ingredient and remove-recipe
+
+commit 810751f181e1bffd55e239cb1a7acb636caeff29
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Feb 29 23:11:25 2024 +0000
+
+    Restructed code and started work on delete methods
+
+commit 41f110ecdbbe200baecb632fbd9a87e192fc6d55
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Feb 29 22:41:58 2024 +0000
+
+    Changed /initialise to a delete request
+
+commit 6e42198e79932539311362f146ecdf055eff8334
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Feb 29 16:00:57 2024 +0000
+
+    Added /match-recipes/
+
+commit 9c4b850447b397ff455b7a2cf9b6db9125117e09
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Thu Feb 29 11:43:34 2024 +0000
+
+    Added search-recipes
+
+commit 49ed5966d455e7db4dff750a0c93d187215d2877
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Feb 28 22:31:44 2024 +0000
+
+    Added search for ingredients, changed ingredients to lowercase
+
+commit 01093d8dfcff72a4f90e69b65a2691a50c662273
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Feb 28 12:21:48 2024 +0000
+
+    Addded get-ingredients and get-recipes
+
+commit 7c88f5573d34ef304a80eed660995d3f77c6c21c
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Feb 28 11:59:27 2024 +0000
+
+    Added new-recipe and initialise and initialise function
+
+commit 17262e997bece23edbc48f9b802be43973426c12
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Wed Feb 28 10:51:08 2024 +0000
+
+    Added new-ingredient
+
+commit b5eaa4bbed9e66c93a04738a88301672d06a25aa
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Feb 27 23:18:40 2024 +0000
+
+    Added .DS_Store to .gitignore
+
+commit 92d30de000bef94a692d8d3e69a5c4fb4317936d
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Feb 27 23:17:45 2024 +0000
+
+    Made small change to match-recipes
+
+commit df693d9f4feb0a88c77395a15aa79f27e5f99333
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Feb 27 23:16:27 2024 +0000
+
+    Added logo
+
+commit ba12f426c0fad66452b861b8d65d94c0d1aacdc0
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Feb 27 12:06:39 2024 +0000
+
+    Cleaned up app functions, added error handling
+
+commit 30217d1f47689569363c1a2df76a452fc5e82cc1
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Tue Feb 27 11:16:15 2024 +0000
+
+    Added POST methods to add new recipes and ingredients
+
+commit 8ba57a89724e09960d53360ef78a27351ed703d3
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Feb 25 20:18:51 2024 +0000
+
+    Started work on index client page
+
+commit dafb79e5666d902d167069972765f031ed559594
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sun Feb 25 19:25:44 2024 +0000
+
+    Setup ESLint and express app/server
+
+commit eb5ee1c1d231ec5a4755675f9d0706d36a63a05a
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Feb 24 21:59:40 2024 +0000
+
+    Added npm packages needed
+
+commit 638d197c95a3fdcf21baf45ab24cd51379e06821
+Author: charl11e <146877892+charl11e@users.noreply.github.com>
+Date:   Sat Feb 24 21:48:50 2024 +0000
+
+    Initial Commiit

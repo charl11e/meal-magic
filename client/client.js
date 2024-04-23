@@ -32,6 +32,7 @@ function goLight () {
     document.documentElement.style.setProperty('--selected-color', 'black');
     document.body.style.backgroundColor = '#f2f3f4';
     document.cookie = 'theme=light';
+    // Just in case the website is not on the home page
     try {
     document.getElementById('logo-main').setAttribute('src', '/assets/logo-dark.png');
     } catch {
