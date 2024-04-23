@@ -4,7 +4,7 @@
   "description": "A website for my summative project based on recipes and ingredients",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "jest",
     "pretest": "eslint ."
   },
