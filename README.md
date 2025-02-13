@@ -8,6 +8,8 @@ My two types of entity for this website are recipes and ingredients
 
 API Documentation: https://documenter.getpostman.com/view/33001241/2sA3Bj7tUV
 
+Video Mirror: https://youtu.be/Ohi1d3hvC1M
+
 (An offline version of the documentation is also available to view under <i>documentation.json</i>. However, it is recommended to use the web version where possible)
 
 To install: ```npm install```
